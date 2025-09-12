@@ -8,7 +8,7 @@
 import Foundation
 
 /// GitHubのリポジトリ検索APIレスポンス
-struct GitHubRepositoriesResponse: Decodable, Equatable {
+public struct SearchRepositoriesResponse: Decodable, Equatable {
     let totalCount: Int
     let incompleteResults: Bool
     let items: [GitHubRepository]

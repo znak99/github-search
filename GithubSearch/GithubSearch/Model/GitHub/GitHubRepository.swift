@@ -8,8 +8,8 @@
 import Foundation
 
 /// GitHub リポジトリ情報モデル
-struct GitHubRepository: Decodable, Equatable, Identifiable {
-    let id: Int
+public struct GitHubRepository: Decodable, Equatable, Identifiable {
+    public let id: Int
     let name: String
     let fullName: String
     let htmlURL: URL

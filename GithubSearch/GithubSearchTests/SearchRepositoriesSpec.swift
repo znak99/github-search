@@ -13,12 +13,12 @@ import Nimble
 final class SearchRepositoriesSpec: QuickSpec {
     override class func spec() {
         describe("GitHub Search decode") {
-            var response: GitHubRepositoriesResponse!
+            var response: SearchRepositoriesResponse!
             
             context("success JSON (with/without milliseconds)") {
                 beforeEach {
                     let data = try! Fixture.data(named: "SearchRepositoriesResponse_success")
-                    response = try! JSONDecoder.github.decode(GitHubRepositoriesResponse.self, from: data)
+                    response = try! JSONDecoder.github.decode(SearchRepositoriesResponse.self, from: data)
                 }
                 
                 it("parses count and flag") {
@@ -69,7 +69,7 @@ final class SearchRepositoriesSpec: QuickSpec {
                     let data = try! Fixture.data(named: "SearchRepositoriesResponse_fail")
                     
                     expect {
-                        try JSONDecoder.github.decode(GitHubRepositoriesResponse.self, from: data)
+                        try JSONDecoder.github.decode(SearchRepositoriesResponse.self, from: data)
                     }.to(throwError())
                 }
             }
