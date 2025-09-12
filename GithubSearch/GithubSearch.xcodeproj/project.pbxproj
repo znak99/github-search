@@ -283,11 +283,12 @@
 				};
 			};
 			buildConfigurationList = FB529E982E744056007970D3 /* Build configuration list for PBXProject "GithubSearch" */;
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = FB529E942E744056007970D3;
 			minimizedProjectReferenceProxies = 1;
