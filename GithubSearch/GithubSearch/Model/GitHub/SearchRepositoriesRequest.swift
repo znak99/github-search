@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// GitHubのリポジトリ検索APIリクエスト
 public struct SearchRepositoriesRequest: Sendable {
     public var query: String
     public var language: String?
@@ -31,5 +32,8 @@ public struct SearchRepositoriesRequest: Sendable {
     }
 }
 
+/// GitHub リポジトリ検索 API のソート・並び順
 public enum SearchRepositoriesSort: String, Sendable { case stars, forks, updated }
+
+/// GitHub リポジトリ検索 API の結果順序
 public enum SearchRepositoriesOrder: String, Sendable { case desc, asc }

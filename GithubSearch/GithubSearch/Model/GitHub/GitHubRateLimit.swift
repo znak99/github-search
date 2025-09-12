@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// GitHub APIのレート制限情報
 public struct GitHubRateLimit: Sendable {
     public let limit: Int?
     public let remaining: Int?

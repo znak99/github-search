@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// GitHubリポジトリ検索を行うサービス
 public final class SearchRepositoriesService: SearchRepositoriesServicing {
     private let session: URLSession
     private let base = URL(string: "https://api.github.com")!
@@ -17,7 +18,9 @@ public final class SearchRepositoriesService: SearchRepositoriesServicing {
         self.token = token
     }
 
-    public func searchRepositories(_ req: SearchRepositoriesRequest) async throws -> (SearchRepositoriesResponse, GitHubRateLimit) {
+    public func searchRepositories(
+        _ req: SearchRepositoriesRequest
+    ) async throws -> (SearchRepositoriesResponse, GitHubRateLimit) {
         guard !req.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw SearchRepositoriesServiceError.invalidQuery
         }
