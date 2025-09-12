@@ -1,5 +1,5 @@
 //
-//  SearchRepositoriesResponse.swift
+//  GitHubRepositoriesResponse.swift
 //  GithubSearch
 //
 //  Created by seungwoo on 2025/09/12.
@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct SearchRepositoriesResponse: Decodable, Equatable {
+/// GitHubのリポジトリ検索APIレスポンス
+struct GitHubRepositoriesResponse: Decodable, Equatable {
     let totalCount: Int
     let incompleteResults: Bool
     let items: [GitHubRepository]

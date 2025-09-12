@@ -11,13 +11,16 @@
 		FB529EE52E7442B7007970D3 /* GithubSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB529EE32E7442B7007970D3 /* GithubSearchApp.swift */; };
 		FB529EE92E7444C7007970D3 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB529EE82E7444C7007970D3 /* AppConfig.swift */; };
 		FB529EED2E74457B007970D3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB529EEC2E74457B007970D3 /* RootView.swift */; };
-		FB7154F82E745E7900BFE402 /* SearchRepositoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7154F62E745E7900BFE402 /* SearchRepositoriesResponse.swift */; };
+		FB7154F82E745E7900BFE402 /* GitHubRepositoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7154F62E745E7900BFE402 /* GitHubRepositoriesResponse.swift */; };
 		FB7154FA2E745F2700BFE402 /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7154F92E745F2700BFE402 /* GitHubRepository.swift */; };
 		FB7154FC2E745F4500BFE402 /* GitHubRepositoryOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7154FB2E745F4500BFE402 /* GitHubRepositoryOwner.swift */; };
-		FB7155022E745FB800BFE402 /* JSONDecoder+Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7155012E745FB800BFE402 /* JSONDecoder+Github.swift */; };
-		FB7155042E7460E800BFE402 /* SearchRepositoriesResponse_success.json in Resources */ = {isa = PBXBuildFile; fileRef = FB7155032E7460E100BFE402 /* SearchRepositoriesResponse_success.json */; };
+		FB7155022E745FB800BFE402 /* JSONDecoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7155012E745FB800BFE402 /* JSONDecoder+.swift */; };
 		FBB2C9082E74723F004C9165 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = FBB2C9072E74723F004C9165 /* Quick */; };
 		FBB2C90B2E747288004C9165 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = FBB2C90A2E747288004C9165 /* Nimble */; };
+		FBB2C9112E74763B004C9165 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C90F2E74763B004C9165 /* Fixture.swift */; };
+		FBB2C9132E747645004C9165 /* SearchRepositoriesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9122E747645004C9165 /* SearchRepositoriesSpec.swift */; };
+		FBB2C9172E7476CF004C9165 /* SearchRepositoriesResponse_success.json in Resources */ = {isa = PBXBuildFile; fileRef = FBB2C9152E7476CF004C9165 /* SearchRepositoriesResponse_success.json */; };
+		FBB2C91A2E74794E004C9165 /* SearchRepositoriesResponse_fail.json in Resources */ = {isa = PBXBuildFile; fileRef = FBB2C9192E74794E004C9165 /* SearchRepositoriesResponse_fail.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +40,14 @@
 		FB529EE32E7442B7007970D3 /* GithubSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchApp.swift; sourceTree = "<group>"; };
 		FB529EE82E7444C7007970D3 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		FB529EEC2E74457B007970D3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		FB7154F62E745E7900BFE402 /* SearchRepositoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesResponse.swift; sourceTree = "<group>"; };
+		FB7154F62E745E7900BFE402 /* GitHubRepositoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesResponse.swift; sourceTree = "<group>"; };
 		FB7154F92E745F2700BFE402 /* GitHubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepository.swift; sourceTree = "<group>"; };
 		FB7154FB2E745F4500BFE402 /* GitHubRepositoryOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryOwner.swift; sourceTree = "<group>"; };
-		FB7155012E745FB800BFE402 /* JSONDecoder+Github.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Github.swift"; sourceTree = "<group>"; };
-		FB7155032E7460E100BFE402 /* SearchRepositoriesResponse_success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchRepositoriesResponse_success.json; sourceTree = "<group>"; };
+		FB7155012E745FB800BFE402 /* JSONDecoder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+.swift"; sourceTree = "<group>"; };
+		FBB2C90F2E74763B004C9165 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
+		FBB2C9122E747645004C9165 /* SearchRepositoriesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesSpec.swift; sourceTree = "<group>"; };
+		FBB2C9152E7476CF004C9165 /* SearchRepositoriesResponse_success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchRepositoriesResponse_success.json; sourceTree = "<group>"; };
+		FBB2C9192E74794E004C9165 /* SearchRepositoriesResponse_fail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchRepositoriesResponse_fail.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +91,9 @@
 		FB529ECD2E74423C007970D3 /* GithubSearchTests */ = {
 			isa = PBXGroup;
 			children = (
-				FB7155032E7460E100BFE402 /* SearchRepositoriesResponse_success.json */,
+				FBB2C9162E7476CF004C9165 /* Fixture */,
+				FBB2C9102E74763B004C9165 /* Supports */,
+				FBB2C9122E747645004C9165 /* SearchRepositoriesSpec.swift */,
 			);
 			path = GithubSearchTests;
 			sourceTree = "<group>";
@@ -170,7 +178,7 @@
 		FB7154F72E745E7900BFE402 /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
-				FB7154F62E745E7900BFE402 /* SearchRepositoriesResponse.swift */,
+				FB7154F62E745E7900BFE402 /* GitHubRepositoriesResponse.swift */,
 				FB7154F92E745F2700BFE402 /* GitHubRepository.swift */,
 				FB7154FB2E745F4500BFE402 /* GitHubRepositoryOwner.swift */,
 			);
@@ -180,7 +188,7 @@
 		FB7154FF2E745F9000BFE402 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FB7155012E745FB800BFE402 /* JSONDecoder+Github.swift */,
+				FB7155012E745FB800BFE402 /* JSONDecoder+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,6 +199,23 @@
 				FB7154FF2E745F9000BFE402 /* Extensions */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FBB2C9102E74763B004C9165 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				FBB2C90F2E74763B004C9165 /* Fixture.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		FBB2C9162E7476CF004C9165 /* Fixture */ = {
+			isa = PBXGroup;
+			children = (
+				FBB2C9152E7476CF004C9165 /* SearchRepositoriesResponse_success.json */,
+				FBB2C9192E74794E004C9165 /* SearchRepositoriesResponse_fail.json */,
+			);
+			path = Fixture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +277,7 @@
 					};
 					FB529EA92E744058007970D3 = {
 						CreatedOnToolsVersion = 16.4;
+						LastSwiftMigration = 1640;
 						TestTargetID = FB529E9C2E744056007970D3;
 					};
 				};
@@ -293,7 +319,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB7155042E7460E800BFE402 /* SearchRepositoriesResponse_success.json in Resources */,
+				FBB2C91A2E74794E004C9165 /* SearchRepositoriesResponse_fail.json in Resources */,
+				FBB2C9172E7476CF004C9165 /* SearchRepositoriesResponse_success.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,13 +331,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB7154F82E745E7900BFE402 /* SearchRepositoriesResponse.swift in Sources */,
+				FB7154F82E745E7900BFE402 /* GitHubRepositoriesResponse.swift in Sources */,
 				FB529EED2E74457B007970D3 /* RootView.swift in Sources */,
 				FB529EE92E7444C7007970D3 /* AppConfig.swift in Sources */,
 				FB7154FA2E745F2700BFE402 /* GitHubRepository.swift in Sources */,
 				FB7154FC2E745F4500BFE402 /* GitHubRepositoryOwner.swift in Sources */,
 				FB529EE52E7442B7007970D3 /* GithubSearchApp.swift in Sources */,
-				FB7155022E745FB800BFE402 /* JSONDecoder+Github.swift in Sources */,
+				FB7155022E745FB800BFE402 /* JSONDecoder+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +345,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBB2C9132E747645004C9165 /* SearchRepositoriesSpec.swift in Sources */,
+				FBB2C9112E74763B004C9165 /* Fixture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,15 +554,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SHUGXU55KP;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.znak99.GithubSearchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GithubSearch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GithubSearch";
@@ -544,14 +579,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SHUGXU55KP;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.znak99.GithubSearchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
