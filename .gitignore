@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.xcworkspace/xcuserdata/
+*.xcuserstate
+*.xcuserdatad
+*.moved-aside
+*.xcscmblueprint
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# Archives
+*.xcarchive
+
+# Swift Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Temp / lock files
+*.swp
+*.swo
+*.tmp
+*.lock
+*.orig
