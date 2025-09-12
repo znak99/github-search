@@ -1,0 +1,37 @@
+{
+  "total_count": 2,
+  "incomplete_results": false,
+  "items": [
+    {
+      "id": 1,
+      "name": "TestRepo1",
+      "full_name": "tester1/TestRepo1",
+      "html_url": "https://github.com/tester1/TestRepo1",
+      "description": "Sample repository",
+      "stargazers_count": 10,
+      "forks_count": 10,
+      "language": "Swift",
+      "updated_at": "2025-09-12T12:34:56Z",
+      "owner": {
+        "login": "tester1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+      }
+    },
+    {
+      "id": 2,
+      "name": "TestRepo2",
+      "full_name": "tester2/TestRepo2",
+      "html_url": "https://github.com/tester2/TestRepo2",
+      "description": null,
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "language": null,
+      "updated_at": "2025-09-11T12:34:56.789Z",
+      "owner": {
+        "login": "tester2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/10639145?v=4"
+      }
+    }
+  ]
+}
+
