@@ -10,6 +10,7 @@ import Foundation
 /// GitHub リポジトリ検索サービスで発生するエラー
 public enum SearchRepositoriesServiceError: Error, LocalizedError, Sendable {
     case invalidQuery
+    case invalidURL
     case httpStatus(Int, String?)
     case rateLimited(resetAt: Date?)
     case decoding(Error)
@@ -20,6 +21,8 @@ public enum SearchRepositoriesServiceError: Error, LocalizedError, Sendable {
         switch self {
         case .invalidQuery:
             return "検索クエリが正しくないようです。ご確認ください。"
+        case .invalidURL:
+            return "URLが正しくないようです。ご確認ください。"
         case .httpStatus(let code, let msg):
             return "HTTP \(code): \(msg ?? "エラーが発生しました")"
         case .rateLimited(let reset):
