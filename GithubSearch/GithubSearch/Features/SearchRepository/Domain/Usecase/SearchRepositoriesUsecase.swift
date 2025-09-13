@@ -18,7 +18,3 @@ public protocol SearchRepositoriesUsecase: Sendable {
         perPage: Int
     ) async throws -> (SearchRepositoriesResponse, GitHubRateLimit)
 }
-
-
-
-

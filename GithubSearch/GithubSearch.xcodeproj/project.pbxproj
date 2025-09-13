@@ -129,10 +129,7 @@
 			children = (
 				FB529EE42E7442B7007970D3 /* App */,
 				FB529EE72E7444A1007970D3 /* Configs */,
-				FB529EDD2E7442B7007970D3 /* Model */,
-				FB529EDF2E7442B7007970D3 /* View */,
-				FB529EE02E7442B7007970D3 /* ViewModel */,
-				FBB2C9492E754218004C9165 /* Domain */,
+				FBB2C95B2E75616C004C9165 /* Features */,
 				FB529EDE2E7442B7007970D3 /* Service */,
 				FBB2C92E2E748D9B004C9165 /* Errors */,
 				FB7155002E745F9000BFE402 /* Utils */,
@@ -303,6 +300,33 @@
 				FBB2C94E2E7542B0004C9165 /* SearchRepositoriesUsecase.swift */,
 			);
 			path = Usecase;
+			sourceTree = "<group>";
+		};
+		FBB2C95A2E75616C004C9165 /* SearchRepository */ = {
+			isa = PBXGroup;
+			children = (
+				FB529EDD2E7442B7007970D3 /* Model */,
+				FB529EDF2E7442B7007970D3 /* View */,
+				FB529EE02E7442B7007970D3 /* ViewModel */,
+				FBB2C95D2E7561BA004C9165 /* Manager */,
+				FBB2C9492E754218004C9165 /* Domain */,
+			);
+			path = SearchRepository;
+			sourceTree = "<group>";
+		};
+		FBB2C95B2E75616C004C9165 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				FBB2C95A2E75616C004C9165 /* SearchRepository */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		FBB2C95D2E7561BA004C9165 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
