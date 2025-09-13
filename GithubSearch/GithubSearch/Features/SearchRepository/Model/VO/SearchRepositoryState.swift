@@ -18,6 +18,7 @@ public struct SearchRepositoryState {
     let perPage = 30
     var canLoadMore = true
     var rateLimit: GitHubRateLimit?
+
     enum ViewState: Equatable { case idle, loading, loaded, empty, error(String) }
     var viewState: ViewState = .idle
 }

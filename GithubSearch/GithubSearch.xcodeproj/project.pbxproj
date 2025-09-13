@@ -37,7 +37,8 @@
 		FBB2C95F2E75628F004C9165 /* SearchRepositoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C95E2E75628F004C9165 /* SearchRepositoriesManager.swift */; };
 		FBB2C9632E756351004C9165 /* SearchRepositoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9622E756351004C9165 /* SearchRepositoryState.swift */; };
 		FBB2C9652E7564CB004C9165 /* SearchRepositoryAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9642E7564CB004C9165 /* SearchRepositoryAction.swift */; };
-		FBB2C96A2E75688A004C9165 /* reduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9692E756887004C9165 /* reduce.swift */; };
+		FBB2C96E2E757599004C9165 /* SearchRepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C96D2E757599004C9165 /* SearchRepositoriesViewModel.swift */; };
+		FBB2C9702E75771C004C9165 /* SearchReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C96F2E75771C004C9165 /* SearchReducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +82,8 @@
 		FBB2C95E2E75628F004C9165 /* SearchRepositoriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesManager.swift; sourceTree = "<group>"; };
 		FBB2C9622E756351004C9165 /* SearchRepositoryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryState.swift; sourceTree = "<group>"; };
 		FBB2C9642E7564CB004C9165 /* SearchRepositoryAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryAction.swift; sourceTree = "<group>"; };
-		FBB2C9692E756887004C9165 /* reduce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reduce.swift; sourceTree = "<group>"; };
+		FBB2C96D2E757599004C9165 /* SearchRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesViewModel.swift; sourceTree = "<group>"; };
+		FBB2C96F2E75771C004C9165 /* SearchReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 		FB529EE02E7442B7007970D3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FBB2C96D2E757599004C9165 /* SearchRepositoriesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			children = (
 				FB529EDD2E7442B7007970D3 /* Model */,
 				FBB2C95D2E7561BA004C9165 /* Manager */,
+				FBB2C9682E75679A004C9165 /* Reducer */,
 				FB529EE02E7442B7007970D3 /* ViewModel */,
 				FB529EDF2E7442B7007970D3 /* View */,
 			);
@@ -335,7 +339,6 @@
 			isa = PBXGroup;
 			children = (
 				FBB2C95E2E75628F004C9165 /* SearchRepositoriesManager.swift */,
-				FBB2C9682E75679A004C9165 /* Reducer */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -352,7 +355,7 @@
 		FBB2C9682E75679A004C9165 /* Reducer */ = {
 			isa = PBXGroup;
 			children = (
-				FBB2C9692E756887004C9165 /* reduce.swift */,
+				FBB2C96F2E75771C004C9165 /* SearchReducer.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -478,7 +481,7 @@
 				FB7154F82E745E7900BFE402 /* SearchRepositoriesResponse.swift in Sources */,
 				FB529EED2E74457B007970D3 /* RootView.swift in Sources */,
 				FBB2C9452E74B0DF004C9165 /* HTTPClient.swift in Sources */,
-				FBB2C96A2E75688A004C9165 /* reduce.swift in Sources */,
+				FBB2C96E2E757599004C9165 /* SearchRepositoriesViewModel.swift in Sources */,
 				FB529EE92E7444C7007970D3 /* AppConfig.swift in Sources */,
 				FB7154FA2E745F2700BFE402 /* GitHubRepository.swift in Sources */,
 				FBB2C9332E74908A004C9165 /* URLSession+.swift in Sources */,
@@ -488,6 +491,7 @@
 				FB7154FC2E745F4500BFE402 /* GitHubRepositoryOwner.swift in Sources */,
 				FBB2C9522E754353004C9165 /* SearchRepositoriesUsecaseError.swift in Sources */,
 				FB529EE52E7442B7007970D3 /* GithubSearchApp.swift in Sources */,
+				FBB2C9702E75771C004C9165 /* SearchReducer.swift in Sources */,
 				FBB2C91D2E7486F0004C9165 /* SearchRepositoriesRequest.swift in Sources */,
 				FBB2C92B2E748D0D004C9165 /* SearchRepositoriesServicing.swift in Sources */,
 				FBB2C93A2E74AEA2004C9165 /* SearchRepositoriesRequestBuilder.swift in Sources */,

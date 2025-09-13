@@ -15,35 +15,44 @@ public actor SearchRepositoriesManager {
 
     public init(usecase: SearchRepositoriesUsecase) { self.usecase = usecase }
 
-    /// 入力の変化に対してディレイ後に検索を実行
-    public func debouncedSearch(
-        state snapshot: SearchRepositoryState,
+    // 1) 디바운스 1페이지
+    public func debouncedFirstPage(
+        snapshot: SearchRepositoryState,
         delayMs: Int = 350,
-        onResult: @Sendable @escaping (_ items: [GitHubRepository], _ total: Int, _ limit: GitHubRateLimit, _ append: Bool) -> Void,
-        onError:  @Sendable @escaping (_ msg: String) -> Void
-    ) {
+        onResult: @MainActor @Sendable @escaping (_ items: [GitHubRepository], _ total: Int, _ limit: GitHubRateLimit) -> Void,
+        onError:  @MainActor @Sendable @escaping (_ msg: String) -> Void
+    ) async {
         debounceTask?.cancel()
         debounceTask = Task {
             try? await Task.sleep(nanoseconds: UInt64(delayMs) * 1_000_000)
-            await self.perform(state: snapshot, append: false, onResult: onResult, onError: onError)
+            await self.perform(snapshot: snapshot, append: false, onResult: onResult, onError: onError)
         }
     }
-    
-    /// 検索を実行
-    public func search(
-        state snapshot: SearchRepositoryState,
-        onResult: @Sendable @escaping (_ items: [GitHubRepository], _ total: Int, _ limit: GitHubRateLimit, _ append: Bool) -> Void,
-        onError:  @Sendable @escaping (_ msg: String) -> Void
-    ) {
-        Task { await self.perform(state: snapshot, append: true, onResult: onResult, onError: onError) }
+
+    // 2) 명시 1페이지
+    public func loadFirstPage(
+        snapshot: SearchRepositoryState,
+        onResult: @MainActor @Sendable @escaping (_ items: [GitHubRepository], _ total: Int, _ limit: GitHubRateLimit) -> Void,
+        onError:  @MainActor @Sendable @escaping (_ msg: String) -> Void
+    ) async {
+        await perform(snapshot: snapshot, append: false, onResult: onResult, onError: onError)
     }
 
-    /// 内部実装：UseCase を呼び出して結果を返す
+    // 3) 더보기
+    public func loadMore(
+        snapshot: SearchRepositoryState,
+        onResult: @MainActor @Sendable @escaping (_ items: [GitHubRepository], _ total: Int, _ limit: GitHubRateLimit) -> Void,
+        onError:  @MainActor @Sendable @escaping (_ msg: String) -> Void
+    ) async {
+        await perform(snapshot: snapshot, append: true, onResult: onResult, onError: onError)
+    }
+
+    // Core
     private func perform(
-        state s: SearchRepositoryState,
+        snapshot s: SearchRepositoryState,
         append: Bool,
-        onResult: @Sendable @escaping (_ items: [GitHubRepository], _ total: Int, _ limit: GitHubRateLimit, _ append: Bool) -> Void,
-        onError:  @Sendable @escaping (_ msg: String) -> Void
+        onResult: @MainActor @Sendable @escaping (_ items: [GitHubRepository], _ total: Int, _ limit: GitHubRateLimit) -> Void,
+        onError:  @MainActor @Sendable @escaping (_ msg: String) -> Void
     ) async {
         currentTask?.cancel()
         currentTask = Task {
@@ -53,7 +62,7 @@ public actor SearchRepositoriesManager {
                     page: s.page, perPage: s.perPage
                 )
                 guard !Task.isCancelled else { return }
-                await MainActor.run { onResult(resp.items, resp.totalCount, limit, append) }
+                await MainActor.run { onResult(resp.items, resp.totalCount, limit) }
             } catch is CancellationError {
                 // no-op
             } catch {
@@ -62,4 +71,3 @@ public actor SearchRepositoriesManager {
         }
     }
 }
-
