@@ -11,11 +11,8 @@ import Foundation
 struct SearchRepositoriesRequestBuilder {
     let baseURL: URL
 
-    init?() {
-        guard let url = URL(string: AppConfig.API.baseURL) else {
-            return nil
-        }
-        self.baseURL = url
+    init() {
+        self.baseURL = URL(string: AppConfig.API.baseURL)!
     }
 
     func makeRequest(_ req: SearchRepositoriesRequest) throws -> URLRequest {

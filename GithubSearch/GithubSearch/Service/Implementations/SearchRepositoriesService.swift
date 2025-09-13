@@ -13,10 +13,9 @@ public final class SearchRepositoriesService: SearchRepositoriesServicing {
     private let builder: SearchRepositoriesRequestBuilder
     private let rateParser = RateLimitParser()
 
-    public init?(client: HTTPClient = GitHubHTTPClient()) {
+    public init(client: HTTPClient = GitHubHTTPClient()) {
         self.client = client
-        guard let requestBuilder = SearchRepositoriesRequestBuilder() else { return nil }
-        self.builder = requestBuilder
+        self.builder = SearchRepositoriesRequestBuilder()
     }
 
     public func searchRepositories(
