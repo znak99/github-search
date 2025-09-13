@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// GitHub リポジトリ検索サービスで発生するエラー
+/// GitHub リポジトリを検索するサービスで発生するエラー
 public enum SearchRepositoriesServiceError: Error, LocalizedError, Sendable {
     case invalidQuery
     case invalidURL
