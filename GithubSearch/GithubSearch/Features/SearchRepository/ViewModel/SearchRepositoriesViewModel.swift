@@ -27,9 +27,9 @@ public final class SearchRepositoriesViewModel: ObservableObject {
         case .submit:
             performSubmit()
             
-            // ページネーション：一覧の末尾に達したら次ページを追加読み込み
+            // 一覧の末尾に達したら次ページを追加読み込み
         case .reachedBottom(let currentID):
-            loadNextPageIfNeeded(currentID: currentID)
+            loadNextPage(currentID: currentID)
             
             // 内部用アクション：状態遷移のみを適用
         case ._setLoading, ._apply, ._error:
@@ -101,7 +101,7 @@ private extension SearchRepositoriesViewModel {
     }
     
     /// ページネーション：一覧の末尾に達したら次ページを追加読み込み
-    func loadNextPageIfNeeded(currentID: Int?) {
+    func loadNextPage(currentID: Int?) {
         guard let currentID, // Optional 바인딩
               state.canLoadMore,
               state.viewState != .loading,

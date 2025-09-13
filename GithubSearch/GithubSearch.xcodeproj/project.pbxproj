@@ -153,7 +153,8 @@
 		FB529EDD2E7442B7007970D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FBB2C9612E756313004C9165 /* VO */,
+				FBB2C9622E756351004C9165 /* SearchRepositoryState.swift */,
+				FBB2C9642E7564CB004C9165 /* SearchRepositoryAction.swift */,
 				FB7154F72E745E7900BFE402 /* DTO */,
 				FBB2C9492E754218004C9165 /* Domain */,
 			);
@@ -344,15 +345,6 @@
 				FBB2C95E2E75628F004C9165 /* SearchRepositoriesManager.swift */,
 			);
 			path = Manager;
-			sourceTree = "<group>";
-		};
-		FBB2C9612E756313004C9165 /* VO */ = {
-			isa = PBXGroup;
-			children = (
-				FBB2C9622E756351004C9165 /* SearchRepositoryState.swift */,
-				FBB2C9642E7564CB004C9165 /* SearchRepositoryAction.swift */,
-			);
-			path = VO;
 			sourceTree = "<group>";
 		};
 		FBB2C9682E75679A004C9165 /* Reducer */ = {
