@@ -39,6 +39,7 @@
 		FBB2C9652E7564CB004C9165 /* SearchRepositoryAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9642E7564CB004C9165 /* SearchRepositoryAction.swift */; };
 		FBB2C96E2E757599004C9165 /* SearchRepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C96D2E757599004C9165 /* SearchRepositoriesViewModel.swift */; };
 		FBB2C9702E75771C004C9165 /* SearchReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C96F2E75771C004C9165 /* SearchReducer.swift */; };
+		FBB2C9722E758760004C9165 /* SearchRepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9712E758760004C9165 /* SearchRepositoriesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		FBB2C9642E7564CB004C9165 /* SearchRepositoryAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryAction.swift; sourceTree = "<group>"; };
 		FBB2C96D2E757599004C9165 /* SearchRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesViewModel.swift; sourceTree = "<group>"; };
 		FBB2C96F2E75771C004C9165 /* SearchReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReducer.swift; sourceTree = "<group>"; };
+		FBB2C9712E758760004C9165 /* SearchRepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				FB529EEC2E74457B007970D3 /* RootView.swift */,
+				FBB2C9712E758760004C9165 /* SearchRepositoriesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				FBB2C9422E74AFDE004C9165 /* RateLimitParser.swift in Sources */,
 				FB7154FC2E745F4500BFE402 /* GitHubRepositoryOwner.swift in Sources */,
 				FBB2C9522E754353004C9165 /* SearchRepositoriesUsecaseError.swift in Sources */,
+				FBB2C9722E758760004C9165 /* SearchRepositoriesView.swift in Sources */,
 				FB529EE52E7442B7007970D3 /* GithubSearchApp.swift in Sources */,
 				FBB2C9702E75771C004C9165 /* SearchReducer.swift in Sources */,
 				FBB2C91D2E7486F0004C9165 /* SearchRepositoriesRequest.swift in Sources */,
