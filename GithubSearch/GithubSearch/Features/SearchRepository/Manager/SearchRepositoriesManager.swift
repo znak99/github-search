@@ -15,6 +15,7 @@ public actor SearchRepositoriesManager {
 
     public init(usecase: SearchRepositoriesUsecase) { self.usecase = usecase }
 
+    /// 入力の変化に対してディレイ後に検索を実行
     public func debouncedSearch(
         state snapshot: SearchRepositoryState,
         delayMs: Int = 350,
@@ -27,7 +28,8 @@ public actor SearchRepositoriesManager {
             await self.perform(state: snapshot, append: false, onResult: onResult, onError: onError)
         }
     }
-
+    
+    /// 検索を実行
     public func search(
         state snapshot: SearchRepositoryState,
         onResult: @Sendable @escaping (_ items: [GitHubRepository], _ total: Int, _ limit: GitHubRateLimit, _ append: Bool) -> Void,
@@ -36,6 +38,7 @@ public actor SearchRepositoriesManager {
         Task { await self.perform(state: snapshot, append: true, onResult: onResult, onError: onError) }
     }
 
+    /// 内部実装：UseCase を呼び出して結果を返す
     private func perform(
         state s: SearchRepositoryState,
         append: Bool,
