@@ -13,7 +13,7 @@ public enum AppConfig {
         static let baseURL = "https://api.github.com"
         static let searchRepositories = "/search/repositories"
         
-        // GitHub REST API version
+        // GitHub REST APIバージョン
         static let version = "2022-11-28"
         
 

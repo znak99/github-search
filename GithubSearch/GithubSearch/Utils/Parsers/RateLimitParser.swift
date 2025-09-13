@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// GitHub API レート制限ヘッダーを解析し、利用可能な回数やリセット時刻を取得するオブジェクト
+/// GitHub API レート制限ヘッダーを見て、利用可能な回数やリセット時刻を取得するオブジェクト
 struct RateLimitParser {
     func parse(_ http: HTTPURLResponse) -> GitHubRateLimit {
         let limit = http.value(forHTTPHeaderField: "X-RateLimit-Limit").flatMap(Int.init)
