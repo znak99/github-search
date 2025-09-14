@@ -9,7 +9,8 @@ import Foundation
 
 enum Language: String, CaseIterable, Identifiable {
     var id: String { rawValue }
-
+    
+    case none = "指定なし"
     case c = "C"
     case cPlusPlus = "C++"
     case cSharp = "C#"

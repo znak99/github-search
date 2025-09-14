@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchRepositoriesHeader: View {
     
     @Binding var isShowMenu: Bool
+    @Binding var isShowLanguagePicker: Bool
     
     var body: some View {
         VStack {
@@ -17,12 +18,15 @@ struct SearchRepositoriesHeader: View {
                 SquareAppIcon(icon: "github", size: 40)
                 Spacer()
                 HStack(spacing: 24) {
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: EmptyView()) { // TODO: - bookmark repository
                         SquareAppIcon(icon: "bookmark", size: 20)
                     }
                     Button(action: {
                         withAnimation {
                             isShowMenu.toggle()
+                            if !isShowMenu {
+                                isShowLanguagePicker = false
+                            }
                         }
                     }, label: {
                         SquareAppIcon(icon: isShowMenu ? "close" : "menu", size: 20)
@@ -35,5 +39,5 @@ struct SearchRepositoriesHeader: View {
 }
 
 #Preview {
-    SearchRepositoriesHeader(isShowMenu: .constant(false))
+    SearchRepositoriesHeader(isShowMenu: .constant(false), isShowLanguagePicker: .constant(false))
 }

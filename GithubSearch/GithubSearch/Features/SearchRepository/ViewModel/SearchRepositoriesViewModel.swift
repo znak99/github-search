@@ -11,6 +11,7 @@ import Foundation
 public final class SearchRepositoriesViewModel: ObservableObject {
     @Published public private(set) var state = SearchRepositoryState()
     @Published var isShowMenu = false
+    @Published var isShowLanguagePicker = false
     private let manager: SearchRepositoriesManager
     
     // 最後に発行した検索キー（同じリクエストを繰り返さないためのガード）

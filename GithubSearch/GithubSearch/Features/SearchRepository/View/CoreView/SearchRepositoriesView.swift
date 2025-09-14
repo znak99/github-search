@@ -18,13 +18,16 @@ struct SearchRepositoriesView: View {
         ZStack {
             VStack {
                 // Header
-                SearchRepositoriesHeader(isShowMenu: $vm.isShowMenu)
+                SearchRepositoriesHeader(
+                    isShowMenu: $vm.isShowMenu,
+                    isShowLanguagePicker: $vm.isShowLanguagePicker
+                )
                 
                 if vm.isShowMenu {
                     // Menu
                     VStack {
-                        if let rateLimit = vm.state.rateLimit {
-                            Text("検索制限残り\(String(describing: rateLimit.limit))回")
+                        if let limit = vm.state.rateLimit?.limit {
+                            Text("検索制限残り\(limit)回")
                                 .font(.footnote)
                                 .fontWeight(.bold)
                                 .foregroundStyle(.primary)
@@ -90,13 +93,33 @@ struct SearchRepositoriesView: View {
                                             .fontWeight(.medium)
                                             .foregroundStyle(.reverse)
                                         Spacer()
-                                }
-                            })
+                                    }
+                                })
                             .padding(8)
                             .background {
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(.primary)
                             }
+                        }
+                        VStack {
+                            HStack(spacing: 4) {
+                                SquareAppIcon(icon: "code", size: 12)
+                                Text("レポジトリ言語")
+                                    .font(.callout)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.primary)
+                                Spacer()
+                                
+                            }
+                            Text(vm.state.language ?? "指定なし")
+                                .font(.body)
+                                .fontWeight(.bold)
+                                .foregroundStyle(vm.state.language == nil ? .secondary : .primary)
+                                .underline()
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                        }
+                        .onTapGesture {
+                            vm.isShowLanguagePicker = true
                         }
                     }
                 }
@@ -119,7 +142,7 @@ struct SearchRepositoriesView: View {
                 case .empty:
                     SearchRepositoriesStateMessage(
                         main: "レポジトリが見つかりません",
-                        sub: "別のキーワードで検索してください"
+                        sub: "条件を変えて検索してください"
                     )
                 case .loaded:
                     // Search result info
@@ -143,10 +166,36 @@ struct SearchRepositoriesView: View {
                         main: "検索エラー",
                         sub: msg
                     )
-                }               
+                }
             }
             .padding(.horizontal)
             .dismissKeyboardOnTap()
+            .sheet(isPresented: $vm.isShowLanguagePicker) {
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button("完了") { vm.isShowLanguagePicker = false }.bold()
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 8)
+                    
+                    Picker("", selection: Binding(
+                        get: {
+                            vm.state.language.flatMap { Language(rawValue: $0) } ?? .none
+                        },
+                        set: { newValue in
+                            vm.send(.setLanguage(newValue == .none ? nil : newValue.rawValue))
+                        }
+                    )) {
+                        ForEach(Language.allCases) { lang in
+                            Text(lang.rawValue).tag(lang)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                }
+                .presentationDetents([.height(300)])  // 시트 높이
+                .presentationDragIndicator(.visible)  // 상단 인디케이터
+            }
         }
     }
 }

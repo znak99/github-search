@@ -13,8 +13,12 @@ struct FrameModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content.frame(
-            minWidth: size - range, idealWidth: size, maxWidth: size + range,
-            minHeight: size - range, idealHeight: size, maxHeight: size + range,
+            minWidth: size <= 12 ? size : size - range,
+            idealWidth: size,
+            maxWidth: size + range,
+            minHeight: size <= 12 ? size : size - range,
+            idealHeight: size,
+            maxHeight: size + range,
             alignment: .center
         )
     }
