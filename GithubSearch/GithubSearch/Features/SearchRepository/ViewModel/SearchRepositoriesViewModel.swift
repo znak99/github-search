@@ -17,7 +17,7 @@ public final class SearchRepositoriesViewModel: ObservableObject {
     // 最後に発行した検索キー（同じリクエストを繰り返さないためのガード）
     private var lastIssuedKey: String?
     // 検索を実行する最小文字数（短すぎる入力は無視）
-    private let minQueryLength = 2
+    private let minQueryLength = 1
     // デバウンスの待機時間（ミリ秒）
     private let debounceMs = 600
     
