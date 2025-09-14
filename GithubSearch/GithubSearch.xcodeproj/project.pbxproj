@@ -46,7 +46,6 @@
 		FBB2C98D2E76754D004C9165 /* SearchRepositoriesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C98C2E76754D004C9165 /* SearchRepositoriesHeader.swift */; };
 		FBB2C9902E767597004C9165 /* SearchRepositoriesSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C98F2E767597004C9165 /* SearchRepositoriesSearchField.swift */; };
 		FBB2C9922E767BCB004C9165 /* SearchRepositoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9912E767BCB004C9165 /* SearchRepositoriesList.swift */; };
-		FBB2C9992E767DEE004C9165 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9962E767DEE004C9165 /* RootView.swift */; };
 		FBB2C99A2E767DEE004C9165 /* SearchRepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9972E767DEE004C9165 /* SearchRepositoriesView.swift */; };
 		FBB2C99C2E767EA8004C9165 /* SearchRepositoriesResultInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C99B2E767EA8004C9165 /* SearchRepositoriesResultInfo.swift */; };
 		FBB2C99E2E768016004C9165 /* RepositoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C99D2E768016004C9165 /* RepositoryCard.swift */; };
@@ -108,7 +107,6 @@
 		FBB2C98C2E76754D004C9165 /* SearchRepositoriesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesHeader.swift; sourceTree = "<group>"; };
 		FBB2C98F2E767597004C9165 /* SearchRepositoriesSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesSearchField.swift; sourceTree = "<group>"; };
 		FBB2C9912E767BCB004C9165 /* SearchRepositoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesList.swift; sourceTree = "<group>"; };
-		FBB2C9962E767DEE004C9165 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		FBB2C9972E767DEE004C9165 /* SearchRepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesView.swift; sourceTree = "<group>"; };
 		FBB2C99B2E767EA8004C9165 /* SearchRepositoriesResultInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesResultInfo.swift; sourceTree = "<group>"; };
 		FBB2C99D2E768016004C9165 /* RepositoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCard.swift; sourceTree = "<group>"; };
@@ -453,7 +451,6 @@
 		FBB2C9982E767DEE004C9165 /* CoreView */ = {
 			isa = PBXGroup;
 			children = (
-				FBB2C9962E767DEE004C9165 /* RootView.swift */,
 				FBB2C9972E767DEE004C9165 /* SearchRepositoriesView.swift */,
 			);
 			path = CoreView;
@@ -604,7 +601,6 @@
 				FBB2C93A2E74AEA2004C9165 /* SearchRepositoriesRequestBuilder.swift in Sources */,
 				FBB2C98B2E767131004C9165 /* View+.swift in Sources */,
 				FBB2C9A62E76922B004C9165 /* KeyboardWarmup.swift in Sources */,
-				FBB2C9992E767DEE004C9165 /* RootView.swift in Sources */,
 				FBB2C99A2E767DEE004C9165 /* SearchRepositoriesView.swift in Sources */,
 				FBB2C9252E7489A7004C9165 /* GitHubRateLimit.swift in Sources */,
 				FBB2C9892E767104004C9165 /* FrameModifier.swift in Sources */,
