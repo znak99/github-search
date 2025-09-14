@@ -151,27 +151,34 @@ private extension SearchRepositoriesViewModel {
     }
     
     /// 一覧の末尾に達した場合：次ページを追加読み込み
+    @MainActor
     func loadNextPage(currentID: Int?) {
         guard let currentID,
               state.canLoadMore,
-              state.viewState != .loading,
+              !state.isLoadingNext,
               state.items.last?.id == currentID else { return }
-        
-        state.page += 1
-        let snapshot = state
-        SearchReducer.apply(&state, ._setLoading)
-        
-        Task { [weak self] in
+
+        let nextPage = state.page + 1
+
+        var snapshot = state
+        snapshot.page = nextPage
+
+        state.isLoadingNext = true
+
+        Task(priority: .userInitiated) { [weak self] in
             guard let self else { return }
             await self.manager.loadMore(
                 snapshot: snapshot,
                 onResult: { [weak self] items, total, limit in
                     guard let self else { return }
                     SearchReducer.apply(&self.state, ._apply(items: items, total: total, limit: limit, append: true))
+                    self.state.page = nextPage
+                    self.state.isLoadingNext = false
                 },
                 onError: { [weak self] msg in
                     guard let self else { return }
                     SearchReducer.apply(&self.state, ._error(msg))
+                    self.state.isLoadingNext = false
                 }
             )
         }

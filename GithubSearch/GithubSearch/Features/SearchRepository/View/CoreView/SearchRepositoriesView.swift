@@ -43,7 +43,18 @@ struct SearchRepositoriesView: View {
                 case .loaded:
                     // Search result info
                     SearchRepositoriesResultInfo(count: vm.state.items.count)
-                    SearchRepositoriesList(repos: vm.state.items)
+                    SearchRepositoriesList(
+                        repos: vm.state.items,
+                        isLoadingNext: vm.state.isLoadingNext,
+                        canLoadMore: vm.state.canLoadMore,
+                        loadMore: { id in
+                            vm.send(
+                                .reachedBottom(currentID: id)
+                            )
+                        },
+                        onSelect: { repo in
+                            // TODO: - get url
+                        })
                 case .loading:
                     RepositorySkeleton()
                 case .error(let msg):

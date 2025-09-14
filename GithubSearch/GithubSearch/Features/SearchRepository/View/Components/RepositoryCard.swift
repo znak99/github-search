@@ -30,8 +30,5 @@ struct RepositoryCard: View {
                 .fill(.surface)
         }
         .padding(.bottom)
-        .onTapGesture {
-            print(repo.name)
-        }
     }
 }
