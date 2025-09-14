@@ -54,7 +54,7 @@ struct SearchRepositoriesList: View {
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                             HStack {
-                                AppIcon(icon: "code", size: 20)
+                                AppIconFrame(icon: "code", size: 20)
                                 Text(repo.language ?? "Unknown")
                                     .font(.footnote)
                                     .fontWeight(.bold)
@@ -67,14 +67,14 @@ struct SearchRepositoriesList: View {
                     VStack {
                         HStack {
                             HStack {
-                                AppIcon(icon: "star", size: 16)
+                                AppIconFrame(icon: "star", size: 16)
                                 Text("\(repo.stargazersCount) Stars")
                                     .font(.caption)
                                     .fontWeight(.semibold)
                                 Spacer()
                             }
                             HStack {
-                                AppIcon(icon: "fork", size: 16)
+                                AppIconFrame(icon: "fork", size: 16)
                                 Text("\(repo.forksCount) Forks")
                                     .font(.caption)
                                     .fontWeight(.semibold)
@@ -96,7 +96,7 @@ struct SearchRepositoriesList: View {
                                 .fontWeight(.medium)
                                 .foregroundStyle(.gray)
                             Spacer()
-                            AppIcon(icon: "angle-right", size: 24)
+                            AppIconFrame(icon: "angle-right", size: 24)
                         }
                     }
                 }

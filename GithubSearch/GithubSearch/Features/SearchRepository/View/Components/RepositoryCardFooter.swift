@@ -16,7 +16,7 @@ struct RepositoryCardFooter: View {
                 .fontWeight(.medium)
                 .foregroundStyle(.gray)
             Spacer()
-            AppIcon(icon: "angle-right", size: 24)
+            AppIconFrame(icon: "angle-right", size: 24)
         }
     }
 }
