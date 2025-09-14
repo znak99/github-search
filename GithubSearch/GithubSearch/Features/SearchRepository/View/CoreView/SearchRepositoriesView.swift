@@ -25,103 +25,24 @@ struct SearchRepositoriesView: View {
                 
                 if vm.isShowMenu {
                     // Menu
-                    VStack {
-                        if let limit = vm.state.rateLimit?.limit {
-                            Text("検索制限残り\(limit)回")
-                                .font(.footnote)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.primary)
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                        }
-                        HStack(spacing: 4) {
-                            SquareAppIcon(icon: "number-list", size: 12)
-                            Text("並び順")
-                                .font(.callout)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.primary)
-                            Spacer()
-                        }
-                        HStack(spacing: 0) {
-                            RepositorySortButton(
-                                icon: "star",
-                                text: "Stars",
-                                sort: .stars,
-                                sortState: Binding(
-                                    get: { vm.state.sort },
-                                    set: { sort in vm.send(.setSort(sort)) }),
-                                orderState: Binding(
-                                    get: { vm.state.order },
-                                    set: { order in vm.send(.setOrder(order)) })
-                            )
-                            RepositorySortButton(
-                                icon: "fork",
-                                text: "Forks",
-                                sort: .forks,
-                                sortState: Binding(
-                                    get: { vm.state.sort },
-                                    set: { sort in vm.send(.setSort(sort)) }),
-                                orderState: Binding(
-                                    get: { vm.state.order },
-                                    set: { order in vm.send(.setOrder(order)) })
-                            )
-                            RepositorySortButton(
-                                icon: "clock",
-                                text: "Date",
-                                sort: .updated,
-                                sortState: Binding(
-                                    get: { vm.state.sort },
-                                    set: { sort in vm.send(.setSort(sort)) }),
-                                orderState: Binding(
-                                    get: { vm.state.order },
-                                    set: { order in vm.send(.setOrder(order)) })
-                            )
-                        }
-                        if let order = vm.state.order {
-                            Button(
-                                action: {
-                                    vm.send(.setOrder(
-                                        order == .asc ? .desc : .asc
-                                    ))
-                                },
-                                label: {
-                                    HStack {
-                                        Spacer()
-                                        SquareAppIcon(icon: order == .asc ? "order-up" : "order-down",
-                                                      size: 12)
-                                        Text(order == .asc ? "昇順" : "降順")
-                                            .font(.callout)
-                                            .fontWeight(.medium)
-                                            .foregroundStyle(.reverse)
-                                        Spacer()
-                                    }
-                                })
-                            .padding(8)
-                            .background {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(.primary)
-                            }
-                        }
-                        VStack {
-                            HStack(spacing: 4) {
-                                SquareAppIcon(icon: "code", size: 12)
-                                Text("レポジトリ言語")
-                                    .font(.callout)
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.primary)
-                                Spacer()
-                                
-                            }
-                            Text(vm.state.language ?? "指定なし")
-                                .font(.body)
-                                .fontWeight(.bold)
-                                .foregroundStyle(vm.state.language == nil ? .secondary : .primary)
-                                .underline()
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                        }
-                        .onTapGesture {
-                            vm.isShowLanguagePicker = true
-                        }
-                    }
+                    SearchRepositoriesMenu(
+                        limit: vm.state.rateLimit?.remaining,
+                        sort: Binding(
+                            get: { vm.state.sort },
+                            set: { vm.send(.setSort($0)) }
+                        ),
+                        order: Binding(
+                            get: { vm.state.order },
+                            set: { vm.send(.setOrder($0)) }
+                        ),
+                        language: Binding(
+                            get: { vm.state.language },
+                            set: { vm.send(.setLanguage($0)) }
+                        ),
+                        isShowLanguagePicker: Binding(
+                            get: { vm.isShowLanguagePicker },
+                            set: { vm.isShowLanguagePicker = $0 }
+                        ))
                 }
                 
                 // Search field/options
@@ -193,8 +114,8 @@ struct SearchRepositoriesView: View {
                     }
                     .pickerStyle(.wheel)
                 }
-                .presentationDetents([.height(300)])  // 시트 높이
-                .presentationDragIndicator(.visible)  // 상단 인디케이터
+                .presentationDetents([.height(300)])
+                .presentationDragIndicator(.visible)
             }
         }
     }
