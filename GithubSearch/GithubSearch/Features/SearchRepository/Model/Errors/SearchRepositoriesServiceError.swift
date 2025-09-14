@@ -28,15 +28,13 @@ public enum SearchRepositoriesServiceError: Error, LocalizedError, Sendable {
         case .rateLimited(let reset):
             if let reset {
                 let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy/MM/dd HH:mm"
+                formatter.dateFormat = "yyyy年M月d日 H時m分s秒"
                 formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-                
-                // 残りの時間を計算
-                let minutes = max(1, Calendar.current.dateComponents([.minute], from: Date(), to: reset).minute ?? 0)
                 
                 return """
                 アクセスが一時的に制限されています
-                \(minutes)分後に再実行してください
+                リセット時刻 
+                \(formatter.string(from: reset))
                 """
             } else {
                 return """

@@ -25,6 +25,7 @@ struct SearchRepositoriesStateMessage: View {
                     .font(.callout)
                     .fontWeight(.bold)
                     .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
             }
             Spacer()
         }
