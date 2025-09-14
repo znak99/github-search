@@ -12,22 +12,28 @@ public final class SearchRepositoriesViewModel: ObservableObject {
     @Published public private(set) var state = SearchRepositoryState()
     private let manager: SearchRepositoriesManager
     
+    // 最後に発行した検索キー（同じリクエストを繰り返さないためのガード）
+    private var lastIssuedKey: String?
+    // 検索を実行する最小文字数（短すぎる入力は無視）
+    private let minQueryLength = 2
+    // デバウンスの待機時間（ミリ秒）
+    private let debounceMs = 600
+    
     public init(usecase: SearchRepositoriesUsecase) {
         self.manager = SearchRepositoriesManager(usecase: usecase)
     }
     
     public func send(_ action: SearchRepositoryAction) {
         switch action {
-            
-            // 入力・フィルター変更時：少し待ってから最初のページを検索
+            // 入力・フィルター変更時：少し待ってから検索
         case .setQuery, .setLanguage, .setSort, .setOrder:
             handleInputOrFilterChange(action)
             
-            // 明示的な検索実行：すぐに最初のページを取得
+            // 明示的な検索実行（Returnキーやボタン押下）：すぐに検索
         case .submit:
             performSubmit()
             
-            // 一覧の末尾に達したら次ページを追加読み込み
+            // 一覧の末尾に達した場合：次ページを追加読み込み
         case .reachedBottom(let currentID):
             loadNextPage(currentID: currentID)
             
@@ -38,13 +44,46 @@ public final class SearchRepositoriesViewModel: ObservableObject {
     }
 }
 
-// MARK: - Private Helpers
+// MARK: - Private
 private extension SearchRepositoriesViewModel {
-    /// 入力・フィルター変更時：少し待ってから最初のページを検索
+    
+    /// 状態から一意な検索キーを生成（distinct / stale ガード用）
+    /// - sort未指定のとき：GitHub既定の best_match、order は無効なので "ignored"
+    func makeRequestKey(_ s: SearchRepositoryState) -> String {
+        let q = s.query.trimmingCharacters(in: .whitespacesAndNewlines)
+        let lang = (s.language?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
+        
+        let sortKey: String
+        let orderKey: String
+        
+        if let sort = s.sort {
+            // sort がある場合のみ order を有効化（なければ .desc を既定とする）
+            sortKey = sort.rawValue
+            orderKey = (s.order ?? .desc).rawValue
+        } else {
+            // sort 未指定：GitHub の既定は best match。order は無効なので固定文字列で差分抑制
+            sortKey = "best_match"
+            orderKey = "ignored"
+        }
+        
+        return [
+            "q=\(q)",
+            "lang=\(lang)",
+            "sort=\(sortKey)",
+            "order=\(orderKey)",
+            "p=\(s.page)",
+            "pp=\(s.perPage)"
+        ].joined(separator: "|")
+    }
+    
+    /// 入力・フィルター変更時：デバウンスをかけて検索を実行
     func handleInputOrFilterChange(_ action: SearchRepositoryAction) {
         SearchReducer.apply(&state, action)
         
-        if state.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+        // 1) 空文字や短すぎる入力はリクエストしない
+        let trimmed = state.query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard trimmed.count >= minQueryLength else {
+            Task { await manager.cancelDebounce() } // デバウンスをキャンセル
             state.items.removeAll()
             state.page = 1
             state.canLoadMore = true
@@ -52,20 +91,30 @@ private extension SearchRepositoriesViewModel {
             return
         }
         
+        // 2) 常に最初のページから検索
         state.page = 1
-        SearchReducer.apply(&state, ._setLoading)
         
+        // 3) デバウンス：発火直前にのみローディング状態へ
         let snapshot = state
         Task { [weak self] in
             guard let self else { return }
             await self.manager.debouncedFirstPage(
                 snapshot: snapshot,
+                delayMs: debounceMs,
+                onWillFire: { [weak self] in
+                    guard let self else { return }
+                    // distinct: 直前と同じキーならスキップ
+                    let key = self.makeRequestKey(snapshot)
+                    if self.lastIssuedKey == key { return }
+                    self.lastIssuedKey = key
+                    SearchReducer.apply(&self.state, ._setLoading)
+                },
                 onResult: { [weak self] items, total, limit in
                     guard let self else { return }
-                    SearchReducer.apply(
-                        &self.state,
-                        ._apply(items: items, total: total, limit: limit, append: false)
-                    )
+                    // stale ガード: 最新状態のキーと一致しなければ無視
+                    let currentKey = self.makeRequestKey(self.state)
+                    if currentKey != self.lastIssuedKey { return }
+                    SearchReducer.apply(&self.state, ._apply(items: items, total: total, limit: limit, append: false))
                 },
                 onError: { [weak self] msg in
                     guard let self else { return }
@@ -75,22 +124,23 @@ private extension SearchRepositoriesViewModel {
         }
     }
     
-    /// 明示的な検索実行：すぐに最初のページを取得
+    /// 明示的な検索実行：デバウンスを無視して即時に検索
     func performSubmit() {
         state.page = 1
+        let snapshot = state
+        // submit 時は常に新しいキーとして扱う
+        lastIssuedKey = makeRequestKey(snapshot)
         SearchReducer.apply(&state, ._setLoading)
         
-        let snapshot = state
         Task { [weak self] in
             guard let self else { return }
             await self.manager.loadFirstPage(
                 snapshot: snapshot,
                 onResult: { [weak self] items, total, limit in
                     guard let self else { return }
-                    SearchReducer.apply(
-                        &self.state,
-                        ._apply(items: items, total: total, limit: limit, append: false)
-                    )
+                    // stale ガード
+                    if self.makeRequestKey(self.state) != self.lastIssuedKey { return }
+                    SearchReducer.apply(&self.state, ._apply(items: items, total: total, limit: limit, append: false))
                 },
                 onError: { [weak self] msg in
                     guard let self else { return }
@@ -100,28 +150,24 @@ private extension SearchRepositoriesViewModel {
         }
     }
     
-    /// ページネーション：一覧の末尾に達したら次ページを追加読み込み
+    /// 一覧の末尾に達した場合：次ページを追加読み込み
     func loadNextPage(currentID: Int?) {
-        guard let currentID, // Optional 바인딩
+        guard let currentID,
               state.canLoadMore,
               state.viewState != .loading,
-              state.items.last?.id == currentID
-        else { return }
+              state.items.last?.id == currentID else { return }
         
         state.page += 1
+        let snapshot = state
         SearchReducer.apply(&state, ._setLoading)
         
-        let snapshot = state
         Task { [weak self] in
             guard let self else { return }
             await self.manager.loadMore(
                 snapshot: snapshot,
                 onResult: { [weak self] items, total, limit in
                     guard let self else { return }
-                    SearchReducer.apply(
-                        &self.state,
-                        ._apply(items: items, total: total, limit: limit, append: true)
-                    )
+                    SearchReducer.apply(&self.state, ._apply(items: items, total: total, limit: limit, append: true))
                 },
                 onError: { [weak self] msg in
                     guard let self else { return }

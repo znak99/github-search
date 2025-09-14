@@ -23,8 +23,8 @@ struct SearchRepositoriesView: View {
                 // Search field/options
                 SearchRepositoriesSearchField(text: Binding(
                     get: { vm.state.query },
-                    set: {
-                        vm.send(.setQuery($0))
+                    set: { newValue in
+                        if vm.state.query != newValue { vm.send(.setQuery(newValue)) }
                     }
                 )) {
                     vm.send(.submit)
