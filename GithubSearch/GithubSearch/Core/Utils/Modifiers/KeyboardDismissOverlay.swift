@@ -17,7 +17,10 @@ struct KeyboardDismissOverlay: ViewModifier {
             if isKeyboardVisible {
                 Color.clear
                     .contentShape(Rectangle())
-                    .onTapGesture { UIApplication.shared.hideKeyboard() }
+                    .highPriorityGesture(
+                        DragGesture(minimumDistance: 0)
+                            .onChanged { _ in UIApplication.shared.hideKeyboard() }
+                    )
             }
         }
         .onAppear {
