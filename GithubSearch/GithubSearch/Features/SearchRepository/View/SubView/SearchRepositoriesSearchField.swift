@@ -30,6 +30,9 @@ struct SearchRepositoriesSearchField: View {
                         RoundedRectangle(cornerRadius: 4)
                             .fill(.surface)
                     }
+                    .onSubmit {
+                        onSearch()
+                    }
                 Button(action: onSearch, label: {
                     AppIcon(icon: "search", size: 24)
                 })
