@@ -53,6 +53,7 @@ struct SearchRepositoriesView: View {
                 
             }
             .padding(.horizontal)
+            .dismissKeyboardOnTap()
         }
     }
 }

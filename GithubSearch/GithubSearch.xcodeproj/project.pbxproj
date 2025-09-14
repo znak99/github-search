@@ -54,6 +54,8 @@
 		FBB2C9A22E7681BF004C9165 /* RepositoryCardBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9A12E7681BF004C9165 /* RepositoryCardBody.swift */; };
 		FBB2C9A42E7681EF004C9165 /* RepositoryCardFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9A32E7681EF004C9165 /* RepositoryCardFooter.swift */; };
 		FBB2C9A62E76922B004C9165 /* KeyboardWarmup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9A52E76922B004C9165 /* KeyboardWarmup.swift */; };
+		FBB2C9A82E769472004C9165 /* KeyboardDismissOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9A72E769470004C9165 /* KeyboardDismissOverlay.swift */; };
+		FBB2C9AA2E7694D9004C9165 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9A92E7694D9004C9165 /* UIApplication+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		FBB2C9A12E7681BF004C9165 /* RepositoryCardBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCardBody.swift; sourceTree = "<group>"; };
 		FBB2C9A32E7681EF004C9165 /* RepositoryCardFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCardFooter.swift; sourceTree = "<group>"; };
 		FBB2C9A52E76922B004C9165 /* KeyboardWarmup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardWarmup.swift; sourceTree = "<group>"; };
+		FBB2C9A72E769470004C9165 /* KeyboardDismissOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissOverlay.swift; sourceTree = "<group>"; };
+		FBB2C9A92E7694D9004C9165 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,7 @@
 				FBB2C9822E766B5D004C9165 /* Image+.swift */,
 				FBB2C9862E766E61004C9165 /* Date+.swift */,
 				FBB2C98A2E767131004C9165 /* View+.swift */,
+				FBB2C9A92E7694D9004C9165 /* UIApplication+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 		FBB2C9812E766B47004C9165 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				FBB2C9A72E769470004C9165 /* KeyboardDismissOverlay.swift */,
 				FBB2C9882E767104004C9165 /* FrameModifier.swift */,
 			);
 			path = Modifiers;
@@ -569,6 +575,7 @@
 			files = (
 				FBB2C98D2E76754D004C9165 /* SearchRepositoriesHeader.swift in Sources */,
 				FBB2C9A22E7681BF004C9165 /* RepositoryCardBody.swift in Sources */,
+				FBB2C9AA2E7694D9004C9165 /* UIApplication+.swift in Sources */,
 				FBB2C9652E7564CB004C9165 /* SearchRepositoryAction.swift in Sources */,
 				FBB2C92F2E748D9B004C9165 /* SearchRepositoriesServiceError.swift in Sources */,
 				FBB2C97C2E7668CF004C9165 /* AppIconFrame.swift in Sources */,
@@ -593,6 +600,7 @@
 				FBB2C9702E75771C004C9165 /* SearchReducer.swift in Sources */,
 				FBB2C91D2E7486F0004C9165 /* SearchRepositoriesRequest.swift in Sources */,
 				FBB2C92B2E748D0D004C9165 /* SearchRepositoriesServicing.swift in Sources */,
+				FBB2C9A82E769472004C9165 /* KeyboardDismissOverlay.swift in Sources */,
 				FBB2C93A2E74AEA2004C9165 /* SearchRepositoriesRequestBuilder.swift in Sources */,
 				FBB2C98B2E767131004C9165 /* View+.swift in Sources */,
 				FBB2C9A62E76922B004C9165 /* KeyboardWarmup.swift in Sources */,
