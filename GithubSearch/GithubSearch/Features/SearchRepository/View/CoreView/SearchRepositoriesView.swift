@@ -13,7 +13,6 @@ struct SearchRepositoriesView: View {
             service: SearchRepositoriesService()
         )
     )
-    @State var searchText = ""
     
     var body: some View {
         ZStack {
@@ -24,19 +23,23 @@ struct SearchRepositoriesView: View {
                 // Search field/options
                 SearchRepositoriesSearchField(text: Binding(
                     get: { vm.state.query },
-                    set: { vm.send(.setQuery($0)) }
+                    set: {
+                        vm.send(.setQuery($0))
+                    }
                 )) {
                     vm.send(.submit)
                 }
                 switch vm.state.viewState {
                 case .idle:
-                    Spacer()
-                    Text("idle")
-                    Spacer()
+                    SearchRepositoriesStateMessage(
+                        main: "気になるテーマは？",
+                        sub: "キーワードを入力してください"
+                    )
                 case .empty:
-                    Spacer()
-                    Text("empty")
-                    Spacer()
+                    SearchRepositoriesStateMessage(
+                        main: "レポジトリが見つかりません",
+                        sub: "別のキーワードで検索してください"
+                    )
                 case .loaded:
                     Spacer()
                     SearchRepositoriesList(repos: vm.state.items)
@@ -46,11 +49,11 @@ struct SearchRepositoriesView: View {
                     Text("loading")
                     Spacer()
                 case .error(let msg):
-                    Spacer()
-                    Text("\(msg)")
-                    Spacer()
-                }
-                
+                    SearchRepositoriesStateMessage(
+                        main: "検索エラー",
+                        sub: msg
+                    )
+                }               
             }
             .padding(.horizontal)
             .dismissKeyboardOnTap()

@@ -15,10 +15,10 @@ struct SearchRepositoriesHeader: View {
                 Spacer()
                 HStack(spacing: 24) {
                     NavigationLink(destination: EmptyView()) {
-                        AppIconFrame(icon: "bookmark", size: 24)
+                        AppIconFrame(icon: "bookmark", size: 20)
                     }
                     Button(action: {}, label: {
-                        AppIconFrame(icon: "menu", size: 24)
+                        AppIconFrame(icon: "menu", size: 20)
                     })
                 }
             }
