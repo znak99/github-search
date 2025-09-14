@@ -13,6 +13,7 @@ struct GithubSearchApp: App {
         WindowGroup {
             NavigationStack {
                 SearchRepositoriesView()
+                    .overlay(KeyboardWarmup().frame(width: 0, height: 0))
             }
         }
     }

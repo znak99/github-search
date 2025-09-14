@@ -53,6 +53,7 @@
 		FBB2C9A02E7680F7004C9165 /* RepositoryCardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C99F2E7680F7004C9165 /* RepositoryCardHeader.swift */; };
 		FBB2C9A22E7681BF004C9165 /* RepositoryCardBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9A12E7681BF004C9165 /* RepositoryCardBody.swift */; };
 		FBB2C9A42E7681EF004C9165 /* RepositoryCardFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9A32E7681EF004C9165 /* RepositoryCardFooter.swift */; };
+		FBB2C9A62E76922B004C9165 /* KeyboardWarmup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C9A52E76922B004C9165 /* KeyboardWarmup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		FBB2C99F2E7680F7004C9165 /* RepositoryCardHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCardHeader.swift; sourceTree = "<group>"; };
 		FBB2C9A12E7681BF004C9165 /* RepositoryCardBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCardBody.swift; sourceTree = "<group>"; };
 		FBB2C9A32E7681EF004C9165 /* RepositoryCardFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCardFooter.swift; sourceTree = "<group>"; };
+		FBB2C9A52E76922B004C9165 /* KeyboardWarmup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardWarmup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 		FB7155002E745F9000BFE402 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FBB2C9A52E76922B004C9165 /* KeyboardWarmup.swift */,
 				FBB2C9812E766B47004C9165 /* Modifiers */,
 				FBB2C9412E74AFDE004C9165 /* Parsers */,
 			);
@@ -592,6 +595,7 @@
 				FBB2C92B2E748D0D004C9165 /* SearchRepositoriesServicing.swift in Sources */,
 				FBB2C93A2E74AEA2004C9165 /* SearchRepositoriesRequestBuilder.swift in Sources */,
 				FBB2C98B2E767131004C9165 /* View+.swift in Sources */,
+				FBB2C9A62E76922B004C9165 /* KeyboardWarmup.swift in Sources */,
 				FBB2C9992E767DEE004C9165 /* RootView.swift in Sources */,
 				FBB2C99A2E767DEE004C9165 /* SearchRepositoriesView.swift in Sources */,
 				FBB2C9252E7489A7004C9165 /* GitHubRateLimit.swift in Sources */,
