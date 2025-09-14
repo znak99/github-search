@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FB03B50A2E76F773006119AE /* SearchRepositoriesStateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB03B5092E76F773006119AE /* SearchRepositoriesStateMessage.swift */; };
+		FB03B50D2E7703DA006119AE /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = FB03B50C2E7703DA006119AE /* Shimmer */; };
+		FB03B5112E770836006119AE /* RepositorySkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB03B5102E770836006119AE /* RepositorySkeleton.swift */; };
 		FB529ED32E74423C007970D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB529ECF2E74423C007970D3 /* Assets.xcassets */; };
 		FB529EE52E7442B7007970D3 /* GithubSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB529EE32E7442B7007970D3 /* GithubSearchApp.swift */; };
 		FB529EE92E7444C7007970D3 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB529EE82E7444C7007970D3 /* AppConfig.swift */; };
@@ -70,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		FB03B5092E76F773006119AE /* SearchRepositoriesStateMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesStateMessage.swift; sourceTree = "<group>"; };
+		FB03B5102E770836006119AE /* RepositorySkeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySkeleton.swift; sourceTree = "<group>"; };
 		FB529E9D2E744056007970D3 /* GithubSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB529EAA2E744058007970D3 /* GithubSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB529ECF2E74423C007970D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB03B50D2E7703DA006119AE /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +403,7 @@
 				FBB2C99F2E7680F7004C9165 /* RepositoryCardHeader.swift */,
 				FBB2C9A12E7681BF004C9165 /* RepositoryCardBody.swift */,
 				FBB2C9A32E7681EF004C9165 /* RepositoryCardFooter.swift */,
+				FB03B5102E770836006119AE /* RepositorySkeleton.swift */,
 				FB03B5092E76F773006119AE /* SearchRepositoriesStateMessage.swift */,
 			);
 			path = Components;
@@ -460,6 +465,7 @@
 			);
 			name = GithubSearch;
 			packageProductDependencies = (
+				FB03B50C2E7703DA006119AE /* Shimmer */,
 			);
 			productName = GithubSearch;
 			productReference = FB529E9D2E744056007970D3 /* GithubSearch.app */;
@@ -520,6 +526,7 @@
 			packageReferences = (
 				FBB2C9062E74723F004C9165 /* XCRemoteSwiftPackageReference "Quick" */,
 				FBB2C9092E747288004C9165 /* XCRemoteSwiftPackageReference "Nimble" */,
+				FB03B50B2E7703DA006119AE /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FB529E9E2E744056007970D3 /* Products */;
@@ -599,6 +606,7 @@
 				FBB2C9A42E7681EF004C9165 /* RepositoryCardFooter.swift in Sources */,
 				FBB2C9632E756351004C9165 /* SearchRepositoryState.swift in Sources */,
 				FBB2C9A02E7680F7004C9165 /* RepositoryCardHeader.swift in Sources */,
+				FB03B5112E770836006119AE /* RepositorySkeleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +901,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FB03B50B2E7703DA006119AE /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
 		FBB2C9062E74723F004C9165 /* XCRemoteSwiftPackageReference "Quick" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Quick";
@@ -912,6 +928,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FB03B50C2E7703DA006119AE /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB03B50B2E7703DA006119AE /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
 		FBB2C9072E74723F004C9165 /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FBB2C9062E74723F004C9165 /* XCRemoteSwiftPackageReference "Quick" */;

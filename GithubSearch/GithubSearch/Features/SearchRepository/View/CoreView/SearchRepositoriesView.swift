@@ -41,13 +41,9 @@ struct SearchRepositoriesView: View {
                         sub: "別のキーワードで検索してください"
                     )
                 case .loaded:
-                    Spacer()
                     SearchRepositoriesList(repos: vm.state.items)
-                    Spacer()
                 case .loading:
-                    Spacer()
-                    Text("loading")
-                    Spacer()
+                    RepositorySkeleton()
                 case .error(let msg):
                     SearchRepositoriesStateMessage(
                         main: "検索エラー",
