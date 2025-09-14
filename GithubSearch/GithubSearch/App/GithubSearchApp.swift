@@ -12,7 +12,7 @@ struct GithubSearchApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                RootView()
+                SearchRepositoriesView()
             }
         }
     }

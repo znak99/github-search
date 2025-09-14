@@ -16,29 +16,14 @@ struct SearchRepositoriesView: View {
             // Header
             VStack {
                 HStack {
-                    Image("github")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(
-                            minWidth: 36, idealWidth: 40, maxWidth: 44,
-                            minHeight: 36, idealHeight: 40, maxHeight: 44)
+                    AppIcon(icon: "github", size: 40)
                     Spacer()
                     HStack(spacing: 24) {
                         NavigationLink(destination: EmptyView()) {
-                            Image("bookmark")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(
-                                    minWidth: 20, idealWidth: 24, maxWidth: 28,
-                                    minHeight: 20, idealHeight: 24, maxHeight: 28)
+                            AppIcon(icon: "bookmark", size: 24)
                         }
                         Button(action: {}, label: {
-                            Image("menu")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(
-                                    minWidth: 20, idealWidth: 24, maxWidth: 28,
-                                    minHeight: 20, idealHeight: 24, maxHeight: 28)
+                            AppIcon(icon: "menu", size: 24)
                         })
                     }
                 }
@@ -54,7 +39,7 @@ struct SearchRepositoriesView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top)
                 HStack {
-                    TextField("キーワードを入力してください", text: $searchText)
+                    TextField("キーワード", text: $searchText)
                         .font(.headline)
                         .fontWeight(.regular)
                         .foregroundStyle(.primary)
@@ -64,12 +49,7 @@ struct SearchRepositoriesView: View {
                                 .fill(.surface)
                         }
                     Button(action: {}, label: {
-                        Image("search")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(
-                                minWidth: 20, idealWidth: 24, maxWidth: 28,
-                                minHeight: 20, idealHeight: 24, maxHeight: 28)
+                        AppIcon(icon: "search", size: 24)
                     })
                     .padding(4)
                 }
@@ -99,23 +79,11 @@ struct SearchRepositoriesView: View {
                                 case .empty:
                                     ProgressView()
                                 case .success(let image):
-                                    image.resizable()
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 48, height: 48, alignment: .center)
-                                        .clipShape(Circle())
+                                    image.avatarSize(48).clipShape(Circle())
                                 case .failure(_):
-                                    Image("github")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 48, height: 48, alignment: .center)
-                                        .clipShape(Circle())
+                                    Image("github").avatarSize(48)
                                 @unknown default:
-                                    Image("github")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 48, height: 48, alignment: .center)
-                                        .clipShape(Circle())
+                                    Image("github").avatarSize(48)
                                 }
                             }
                             
@@ -135,16 +103,11 @@ struct SearchRepositoriesView: View {
                             
                             Spacer()
                             VStack(alignment: .leading) {
-                                Text("最終更新日 \(formatDate(repo.updatedAt))")
+                                Text("最終更新日 \(repo.updatedAt.formatted())")
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                                 HStack {
-                                    Image("code")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(
-                                            minWidth: 16, idealWidth: 20, maxWidth: 24,
-                                            minHeight: 16, idealHeight: 20, maxHeight: 24)
+                                    AppIcon(icon: "code", size: 20)
                                     Text(repo.language ?? "Unknown")
                                         .font(.footnote)
                                         .fontWeight(.bold)
@@ -157,24 +120,14 @@ struct SearchRepositoriesView: View {
                         VStack {
                             HStack {
                                 HStack {
-                                    Image("star")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(
-                                            minWidth: 12, idealWidth: 16, maxWidth: 20,
-                                            minHeight: 12, idealHeight: 16, maxHeight: 20)
+                                    AppIcon(icon: "star", size: 16)
                                     Text("\(repo.stargazersCount) Stars")
                                         .font(.caption)
                                         .fontWeight(.semibold)
                                     Spacer()
                                 }
                                 HStack {
-                                    Image("fork")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(
-                                            minWidth: 12, idealWidth: 16, maxWidth: 20,
-                                            minHeight: 12, idealHeight: 16, maxHeight: 20)
+                                    AppIcon(icon: "fork", size: 16)
                                     Text("\(repo.forksCount) Forks")
                                         .font(.caption)
                                         .fontWeight(.semibold)
@@ -196,12 +149,7 @@ struct SearchRepositoriesView: View {
                                     .fontWeight(.medium)
                                     .foregroundStyle(.gray)
                                 Spacer()
-                                Image("angle-right")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(
-                                        minWidth: 20, idealWidth: 24, maxWidth: 28,
-                                        minHeight: 20, idealHeight: 24, maxHeight: 28)
+                                AppIcon(icon: "angle-right", size: 24)
                             }
                         }
                     }
@@ -219,14 +167,6 @@ struct SearchRepositoriesView: View {
         }
         .padding(.horizontal)
     }
-    
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        formatter.locale = Locale(identifier: "ja_JP")
-        return formatter.string(from: date)
-    }
-
 }
 
 #Preview {
