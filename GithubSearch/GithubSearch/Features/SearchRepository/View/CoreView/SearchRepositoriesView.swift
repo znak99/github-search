@@ -41,6 +41,8 @@ struct SearchRepositoriesView: View {
                         sub: "別のキーワードで検索してください"
                     )
                 case .loaded:
+                    // Search result info
+                    SearchRepositoriesResultInfo(count: vm.state.items.count)
                     SearchRepositoriesList(repos: vm.state.items)
                 case .loading:
                     RepositorySkeleton()

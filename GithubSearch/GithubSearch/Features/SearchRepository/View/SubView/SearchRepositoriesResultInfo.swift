@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchRepositoriesResultInfo: View {
     
-    let repos: [GitHubRepository]
+    let count: Int
     
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
@@ -18,7 +18,7 @@ struct SearchRepositoriesResultInfo: View {
                 .fontWeight(.regular)
                 .foregroundStyle(.primary)
             Spacer()
-            Text("\(repos.count)件")
+            Text("\(count)件")
                 .font(.footnote)
                 .fontWeight(.regular)
                 .foregroundStyle(.primary)
@@ -28,5 +28,5 @@ struct SearchRepositoriesResultInfo: View {
 }
 
 #Preview {
-    SearchRepositoriesResultInfo(repos: testRepos)
+    SearchRepositoriesResultInfo(count: testRepos.count)
 }

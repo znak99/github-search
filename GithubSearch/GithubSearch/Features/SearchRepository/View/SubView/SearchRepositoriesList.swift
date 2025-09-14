@@ -13,8 +13,6 @@ struct SearchRepositoriesList: View {
     
     var body: some View {
         ScrollView {
-            // Search result info
-            SearchRepositoriesResultInfo(repos: repos)
             
             ForEach(repos, id: \.id) { repo in
                 // Repository Card

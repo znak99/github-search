@@ -20,19 +20,36 @@ public enum SearchRepositoriesServiceError: Error, LocalizedError, Sendable {
     public var errorDescription: String? {
         switch self {
         case .invalidQuery:
-            return "検索クエリが正しくないようです。ご確認ください。"
+            return "検索クエリが正しくないようです\nご確認ください"
         case .invalidURL:
-            return "URLが正しくないようです。ご確認ください。"
+            return "URLが正しくないようです\nご確認ください"
         case .httpStatus(let code, let msg):
-            return "HTTP \(code): \(msg ?? "エラーが発生しました")"
+            return "HTTP \(code)\n\(msg ?? "エラーが発生しました")"
         case .rateLimited(let reset):
-            return "アクセスが一時的に制限されています。再試行は \(reset?.description ?? "しばらく後にお願いいたします")。"
+            if let reset {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy/MM/dd HH:mm"
+                formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+                
+                // 残りの時間を計算
+                let minutes = max(1, Calendar.current.dateComponents([.minute], from: Date(), to: reset).minute ?? 0)
+                
+                return """
+                アクセスが一時的に制限されています
+                \(minutes)分後に再実行してください
+                """
+            } else {
+                return """
+                アクセスが一時的に制限されています
+                しばらく後にお願いいたします
+                """
+            }
         case .decoding:
-            return "サーバーからのデータを読み取れませんでした。もう一度お試しください。"
+            return "データを読み取れませんでした\nもう一度お試しください"
         case .transport:
-            return "ネットワーク接続に問題があるようです。ご確認ください。"
+            return "ネットワーク接続に問題があるようです\nご確認ください"
         case .unknown:
-            return "不明なエラーが発生しました。もう一度お試しください。"
+            return "不明なエラーが発生しました\nもう一度お試しください"
         }
     }
 }
