@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AppIconFrame: View {
+struct SquareAppIcon: View {
     
     let icon: String
     let size: CGFloat
@@ -21,5 +21,5 @@ struct AppIconFrame: View {
 }
 
 #Preview {
-    AppIconFrame(icon: "github", size: 40)
+    SquareAppIcon(icon: "github", size: 40)
 }

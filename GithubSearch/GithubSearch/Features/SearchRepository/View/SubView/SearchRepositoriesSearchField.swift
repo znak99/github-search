@@ -34,7 +34,7 @@ struct SearchRepositoriesSearchField: View {
                         onSearch()
                     }
                 Button(action: onSearch, label: {
-                    AppIconFrame(icon: "search", size: 24)
+                    SquareAppIcon(icon: "search", size: 24)
                 })
                 .padding(4)
             }

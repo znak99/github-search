@@ -8,17 +8,24 @@
 import SwiftUI
 
 struct SearchRepositoriesHeader: View {
+    
+    @Binding var isShowMenu: Bool
+    
     var body: some View {
         VStack {
             HStack {
-                AppIconFrame(icon: "github", size: 40)
+                SquareAppIcon(icon: "github", size: 40)
                 Spacer()
                 HStack(spacing: 24) {
                     NavigationLink(destination: EmptyView()) {
-                        AppIconFrame(icon: "bookmark", size: 20)
+                        SquareAppIcon(icon: "bookmark", size: 20)
                     }
-                    Button(action: {}, label: {
-                        AppIconFrame(icon: "menu", size: 20)
+                    Button(action: {
+                        withAnimation {
+                            isShowMenu.toggle()
+                        }
+                    }, label: {
+                        SquareAppIcon(icon: isShowMenu ? "close" : "menu", size: 20)
                     })
                 }
             }
@@ -28,5 +35,5 @@ struct SearchRepositoriesHeader: View {
 }
 
 #Preview {
-    SearchRepositoriesHeader()
+    SearchRepositoriesHeader(isShowMenu: .constant(false))
 }

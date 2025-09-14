@@ -46,7 +46,7 @@ struct RepositoryCardHeader: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
                 HStack {
-                    AppIconFrame(icon: "code", size: 20)
+                    SquareAppIcon(icon: "code", size: 20)
                     Text(repo.language ?? "Unknown")
                         .font(.footnote)
                         .fontWeight(.bold)

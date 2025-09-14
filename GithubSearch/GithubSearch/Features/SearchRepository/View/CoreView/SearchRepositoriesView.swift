@@ -18,7 +18,88 @@ struct SearchRepositoriesView: View {
         ZStack {
             VStack {
                 // Header
-                SearchRepositoriesHeader()
+                SearchRepositoriesHeader(isShowMenu: $vm.isShowMenu)
+                
+                if vm.isShowMenu {
+                    // Menu
+                    VStack {
+                        if let rateLimit = vm.state.rateLimit {
+                            Text("検索制限残り\(String(describing: rateLimit.limit))回")
+                                .font(.footnote)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.primary)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                        }
+                        HStack(spacing: 4) {
+                            SquareAppIcon(icon: "number-list", size: 12)
+                            Text("並び順")
+                                .font(.callout)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.primary)
+                            Spacer()
+                        }
+                        HStack(spacing: 0) {
+                            RepositorySortButton(
+                                icon: "star",
+                                text: "Stars",
+                                sort: .stars,
+                                sortState: Binding(
+                                    get: { vm.state.sort },
+                                    set: { sort in vm.send(.setSort(sort)) }),
+                                orderState: Binding(
+                                    get: { vm.state.order },
+                                    set: { order in vm.send(.setOrder(order)) })
+                            )
+                            RepositorySortButton(
+                                icon: "fork",
+                                text: "Forks",
+                                sort: .forks,
+                                sortState: Binding(
+                                    get: { vm.state.sort },
+                                    set: { sort in vm.send(.setSort(sort)) }),
+                                orderState: Binding(
+                                    get: { vm.state.order },
+                                    set: { order in vm.send(.setOrder(order)) })
+                            )
+                            RepositorySortButton(
+                                icon: "clock",
+                                text: "Date",
+                                sort: .updated,
+                                sortState: Binding(
+                                    get: { vm.state.sort },
+                                    set: { sort in vm.send(.setSort(sort)) }),
+                                orderState: Binding(
+                                    get: { vm.state.order },
+                                    set: { order in vm.send(.setOrder(order)) })
+                            )
+                        }
+                        if let order = vm.state.order {
+                            Button(
+                                action: {
+                                    vm.send(.setOrder(
+                                        order == .asc ? .desc : .asc
+                                    ))
+                                },
+                                label: {
+                                    HStack {
+                                        Spacer()
+                                        SquareAppIcon(icon: order == .asc ? "order-up" : "order-down",
+                                                      size: 12)
+                                        Text(order == .asc ? "昇順" : "降順")
+                                            .font(.callout)
+                                            .fontWeight(.medium)
+                                            .foregroundStyle(.reverse)
+                                        Spacer()
+                                }
+                            })
+                            .padding(8)
+                            .background {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(.primary)
+                            }
+                        }
+                    }
+                }
                 
                 // Search field/options
                 SearchRepositoriesSearchField(text: Binding(

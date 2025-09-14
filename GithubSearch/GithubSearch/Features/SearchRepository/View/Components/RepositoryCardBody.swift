@@ -15,14 +15,14 @@ struct RepositoryCardBody: View {
         VStack {
             HStack {
                 HStack {
-                    AppIconFrame(icon: "star", size: 16)
+                    SquareAppIcon(icon: "star", size: 16)
                     Text("\(repo.stargazersCount) Stars")
                         .font(.caption)
                         .fontWeight(.semibold)
                     Spacer()
                 }
                 HStack {
-                    AppIconFrame(icon: "fork", size: 16)
+                    SquareAppIcon(icon: "fork", size: 16)
                     Text("\(repo.forksCount) Forks")
                         .font(.caption)
                         .fontWeight(.semibold)
