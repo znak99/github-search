@@ -14,30 +14,27 @@ struct SearchRepositoriesSearchField: View {
     
     var body: some View {
         VStack {
-            Text("レポジトリ検索")
-                .font(.headline)
-                .fontWeight(.bold)
-                .foregroundStyle(.primary)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top)
             HStack {
-                TextField("キーワード", text: $text)
+                SquareAppIcon(icon: "search", size: 20)
+                Text("レポジトリ検索")
                     .font(.headline)
-                    .fontWeight(.regular)
+                    .fontWeight(.bold)
                     .foregroundStyle(.primary)
-                    .padding(8)
-                    .background {
-                        RoundedRectangle(cornerRadius: 4)
-                            .fill(.surface)
-                    }
-                    .onSubmit {
-                        onSearch()
-                    }
-                Button(action: onSearch, label: {
-                    SquareAppIcon(icon: "search", size: 24)
-                })
-                .padding(4)
+                Spacer()
             }
+            .padding(.top)
+            TextField("キーワード", text: $text)
+                .font(.headline)
+                .fontWeight(.regular)
+                .foregroundStyle(.primary)
+                .padding(8)
+                .background {
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(.surface)
+                }
+                .onSubmit {
+                    onSearch()
+                }
         }
     }
 }
