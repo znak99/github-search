@@ -7,16 +7,19 @@
 
 import SwiftUI
 
+// ソート条件を選択するためのボタンビュー
 struct RepositorySortButton: View {
     let icon: String
     let text: String
     let sort: SearchRepositoriesSort
     @Binding var sortState: SearchRepositoriesSort?
     @Binding var orderState: SearchRepositoriesOrder?
-
+    
     var body: some View {
         Button {
             sortState = (sortState == sort ? nil : sort)
+            
+            // ソート対象が選ばれた時はデフォルトで昇順に設定
             withAnimation {
                 orderState = (sortState == nil ? nil : .asc)
             }
@@ -38,4 +41,3 @@ struct RepositorySortButton: View {
         }
     }
 }
-

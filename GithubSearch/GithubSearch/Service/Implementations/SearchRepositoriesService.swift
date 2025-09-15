@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// GitHubリポジトリ検索を行うサービス
+// GitHubリポジトリ検索を行うサービス
 public final class SearchRepositoriesService: SearchRepositoriesServicing {
     private let client: HTTPClient
     private let builder: SearchRepositoriesRequestBuilder

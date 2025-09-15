@@ -7,8 +7,8 @@
 
 import SwiftUI
 
+// 検索結果件数を表示するビュー
 struct SearchRepositoriesResultInfo: View {
-    
     let count: Int
     
     var body: some View {
@@ -17,7 +17,9 @@ struct SearchRepositoriesResultInfo: View {
                 .font(.callout)
                 .fontWeight(.regular)
                 .foregroundStyle(.primary)
+            
             Spacer()
+            
             Text("\(count)件")
                 .font(.footnote)
                 .fontWeight(.regular)
@@ -28,5 +30,5 @@ struct SearchRepositoriesResultInfo: View {
 }
 
 #Preview {
-    SearchRepositoriesResultInfo(count: testRepos.count)
+    SearchRepositoriesResultInfo(count: 5)
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// GitHubリポジトリ検索を行うサービスのプロトコル
+// GitHubリポジトリ検索を行うサービスのプロトコル
 public protocol SearchRepositoriesServicing: Sendable {
     func searchRepositories(
         _ req: SearchRepositoriesRequest

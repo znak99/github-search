@@ -7,8 +7,8 @@
 
 import SwiftUI
 
+// リポジトリ情報をカード形式で表示するビュー
 struct RepositoryCardBody: View {
-    
     let repo: GitHubRepository
     
     var body: some View {
@@ -21,6 +21,7 @@ struct RepositoryCardBody: View {
                         .fontWeight(.semibold)
                     Spacer()
                 }
+                
                 HStack {
                     SquareAppIcon(icon: "fork", size: 16)
                     Text("\(repo.forksCount) Forks")
@@ -29,13 +30,14 @@ struct RepositoryCardBody: View {
                     Spacer()
                 }
             }
+            
             if let description = repo.description {
                 Text(description)
                     .font(.callout)
                     .fontWeight(.medium)
                     .foregroundStyle(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.top)
+                    .padding(.top, 8)
             }
         }
     }

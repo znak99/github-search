@@ -7,8 +7,8 @@
 
 import SwiftUI
 
+// 検索メニュー (ソート・言語フィルターなどを表示)
 struct SearchRepositoriesMenu: View {
-    
     let limit: Int?
     @Binding var sort: SearchRepositoriesSort?
     @Binding var order: SearchRepositoriesOrder?
@@ -24,7 +24,9 @@ struct SearchRepositoriesMenu: View {
                     .foregroundStyle(.primary)
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
+            
             SearchRepositoriesSortSection(sort: $sort, order: $order)
+            
             VStack {
                 HStack(spacing: 4) {
                     SquareAppIcon(icon: "code", size: 12)
@@ -34,6 +36,7 @@ struct SearchRepositoriesMenu: View {
                         .foregroundStyle(.primary)
                     Spacer()
                 }
+                
                 Text(language ?? "指定なし")
                     .font(.body)
                     .fontWeight(.bold)

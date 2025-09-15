@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// GitHub リポジトリ情報モデル
+// GitHub リポジトリ情報モデル
 public struct GitHubRepository: Decodable, Equatable, Identifiable {
     public let id: Int
     let name: String

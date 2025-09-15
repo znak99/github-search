@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// 検索用のテキストフィールドビュー
 struct SearchRepositoriesSearchField: View {
     
     @Binding var text: String
@@ -16,13 +17,16 @@ struct SearchRepositoriesSearchField: View {
         VStack {
             HStack {
                 SquareAppIcon(icon: "search", size: 20)
+                
                 Text("レポジトリ検索")
                     .font(.headline)
                     .fontWeight(.bold)
                     .foregroundStyle(.primary)
+                
                 Spacer()
             }
             .padding(.top)
+            
             TextField("キーワード", text: $text)
                 .font(.headline)
                 .fontWeight(.regular)

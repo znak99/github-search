@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// GitHub用に生成されたリクエストを実行
+// GitHub用に生成されたリクエストを実行
 public struct GitHubHTTPClient: HTTPClient {
     public init() {}
     public func data(for request: URLRequest) async throws -> (Data, URLResponse) {

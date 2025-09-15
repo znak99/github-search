@@ -8,15 +8,18 @@
 import SwiftUI
 import UIKit
 
+// キーボード表示中にタップやジェスチャーで閉じるオーバーレイ
 struct KeyboardDismissOverlay: ViewModifier {
     @State private var isKeyboardVisible = false
-    
+
     func body(content: Content) -> some View {
         ZStack {
             content
+            
             if isKeyboardVisible {
                 Color.clear
                     .contentShape(Rectangle())
+                    // ドラッグジェスチャーを優先的に検知してキーボードを閉じる
                     .highPriorityGesture(
                         DragGesture(minimumDistance: 0)
                             .onChanged { _ in UIApplication.shared.hideKeyboard() }
@@ -24,10 +27,19 @@ struct KeyboardDismissOverlay: ViewModifier {
             }
         }
         .onAppear {
-            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { _ in
+            NotificationCenter.default.addObserver(
+                forName: UIResponder.keyboardWillShowNotification,
+                object: nil,
+                queue: .main
+            ) { _ in
                 isKeyboardVisible = true
             }
-            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
+            
+            NotificationCenter.default.addObserver(
+                forName: UIResponder.keyboardWillHideNotification,
+                object: nil,
+                queue: .main
+            ) { _ in
                 isKeyboardVisible = false
             }
         }

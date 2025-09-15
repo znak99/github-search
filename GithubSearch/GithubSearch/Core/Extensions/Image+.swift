@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// プロフィール画像などを正方形で表示する拡張
 extension Image {
     func avatarSize(_ size: CGFloat) -> some View {
         self

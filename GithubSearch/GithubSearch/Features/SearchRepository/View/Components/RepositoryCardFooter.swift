@@ -7,15 +7,17 @@
 
 import SwiftUI
 
+// リポジトリカードのフッター部分
 struct RepositoryCardFooter: View {
-    
     var body: some View {
         HStack {
             Text("詳しく見る")
                 .font(.footnote)
                 .fontWeight(.medium)
                 .foregroundStyle(.gray)
+            
             Spacer()
+            
             SquareAppIcon(icon: "angle-right", size: 24)
         }
     }

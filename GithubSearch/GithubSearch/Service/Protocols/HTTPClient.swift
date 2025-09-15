@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// GitHub API通信用のHTTPクライアント
+// GitHub API通信用のHTTPクライアント
 public protocol HTTPClient: Sendable {
     func data(for request: URLRequest) async throws -> (Data, URLResponse)
 }

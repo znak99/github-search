@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// GitHubリポジトリ検索用のリクエストを生成
+// GitHubリポジトリ検索用のリクエストを生成
 struct SearchRepositoriesRequestBuilder {
     let baseURL: URL
 

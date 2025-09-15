@@ -8,6 +8,7 @@
 import SwiftUI
 import Shimmer
 
+// GitHub リポジトリのローディング時に表示するスケルトンビュー
 struct RepositorySkeleton: View {
     var body: some View {
         VStack {
@@ -26,15 +27,19 @@ struct RepositorySkeleton: View {
                             RoundedRectangle(cornerRadius: 4)
                                 .fill(.secondary)
                                 .frame(width: 50, height: 12)
+                            
                             RoundedRectangle(cornerRadius: 4)
                                 .fill(.secondary)
                                 .frame(width: 100, height: 12)
                         }
+                        
                         Spacer()
                     }
+                    
                     RoundedRectangle(cornerRadius: 4)
                         .fill(.secondary)
                         .frame(width: 250, height: 12)
+                    
                     RoundedRectangle(cornerRadius: 4)
                         .fill(.secondary)
                         .frame(width: 200, height: 12)

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
+// 正方形アイコンを表示するビュー
 struct SquareAppIcon: View {
-    
     let icon: String
     let size: CGFloat
     
@@ -18,8 +18,4 @@ struct SquareAppIcon: View {
             .scaledToFit()
             .squareFrame(size)
     }
-}
-
-#Preview {
-    SquareAppIcon(icon: "github", size: 40)
 }

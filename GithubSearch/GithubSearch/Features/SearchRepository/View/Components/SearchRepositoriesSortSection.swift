@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// リポジトリ検索の並び順セクションビュー
 struct SearchRepositoriesSortSection: View {
     
     @Binding var sort: SearchRepositoriesSort?
@@ -21,6 +22,7 @@ struct SearchRepositoriesSortSection: View {
                 .foregroundStyle(.primary)
             Spacer()
         }
+        
         HStack(spacing: 0) {
             RepositorySortButton(
                 icon: "star",
@@ -44,21 +46,25 @@ struct SearchRepositoriesSortSection: View {
                 orderState: $order
             )
         }
+        
         if let orderState = order {
             Button(
                 action: { order = (orderState == .asc ? .desc : .asc) },
                 label: {
                     HStack {
                         Spacer()
-                        SquareAppIcon(icon: order == .asc ? "order-up" : "order-down",
-                                      size: 12)
+                        SquareAppIcon(
+                            icon: order == .asc ? "order-up" : "order-down",
+                            size: 12
+                        )
                         Text(order == .asc ? "昇順" : "降順")
                             .font(.callout)
                             .fontWeight(.medium)
                             .foregroundStyle(.reverse)
                         Spacer()
                     }
-                })
+                }
+            )
             .padding(8)
             .background {
                 RoundedRectangle(cornerRadius: 8)

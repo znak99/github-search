@@ -7,15 +7,16 @@
 
 import SwiftUI
 
+// 言語フィルターを選択するシート
 struct LanguageFilterSheet: View {
-    
     @ObservedObject var vm: SearchRepositoriesViewModel
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Button("完了") { vm.isShowLanguagePicker = false }.bold()
+                Button("完了") { vm.isShowLanguagePicker = false }
+                    .bold()
             }
             .padding(.horizontal)
             .padding(.top, 8)
@@ -25,6 +26,7 @@ struct LanguageFilterSheet: View {
                     vm.state.language.flatMap { Language(rawValue: $0) } ?? .none
                 },
                 set: { newValue in
+                    // GitHub API仕様上、"language"はクエリに直接含める必要がある
                     vm.send(.setLanguage(newValue == .none ? nil : newValue.rawValue))
                 }
             )) {

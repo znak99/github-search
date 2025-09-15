@@ -7,21 +7,16 @@
 
 import SwiftUI
 
+// リポジトリ情報を表示するカード
 struct RepositoryCard: View {
     
     let repo: GitHubRepository
     
     var body: some View {
         VStack {
-            // header
             RepositoryCardHeader(repo: repo)
-            
-            // body
             RepositoryCardBody(repo: repo)
-            
             Divider()
-            
-            // footer
             RepositoryCardFooter()
         }
         .padding(8)
@@ -32,3 +27,4 @@ struct RepositoryCard: View {
         .padding(.bottom)
     }
 }
+

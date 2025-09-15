@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// GitHub リポジトリの所有者情報
+// GitHub リポジトリの所有者情報
 public struct GitHubRepositoryOwner: Decodable, Equatable {
     let login: String
     let avatarURL: URL

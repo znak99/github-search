@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// アプリ全体で使用する設定値定義
+// アプリ全体で使用する設定値定義
 public enum AppConfig {
     public enum API {
         static let baseURL = "https://api.github.com"

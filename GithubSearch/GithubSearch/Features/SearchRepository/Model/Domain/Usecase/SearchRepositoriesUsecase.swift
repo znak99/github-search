@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// GitHubリポジトリ検索のユースケース
+// GitHubリポジトリ検索のユースケース
 public protocol SearchRepositoriesUsecase: Sendable {
     func execute(
         query rawQuery: String,

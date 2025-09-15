@@ -8,6 +8,7 @@
 import SwiftUI
 import Shimmer
 
+// リポジトリカードのヘッダー部分を表示するビュー
 struct RepositoryCardHeader: View {
     
     let repo: GitHubRepository
@@ -17,15 +18,19 @@ struct RepositoryCardHeader: View {
             AsyncImage(url: repo.owner.avatarURL) { phase in
                 switch phase {
                 case .empty:
-                    Image("github-avatar").avatarSize(48)
+                    Image("github-avatar")
+                        .avatarSize(48)
                         .background {
                             Circle().fill(.secondary)
                         }
                         .shimmering()
+                    
                 case .success(let image):
                     image.avatarSize(48).clipShape(Circle())
+                    
                 case .failure(_):
                     Image("github").avatarSize(48)
+                    
                 @unknown default:
                     Image("github").avatarSize(48)
                 }
@@ -38,6 +43,7 @@ struct RepositoryCardHeader: View {
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
                     .underline()
+                
                 Text(repo.name)
                     .font(.headline)
                     .fontWeight(.medium)
@@ -46,12 +52,15 @@ struct RepositoryCardHeader: View {
             }
             
             Spacer()
+            
             VStack(alignment: .leading) {
                 Text("最終更新日 \(repo.updatedAt.formatted())")
                     .font(.caption)
                     .foregroundStyle(.secondary)
+                
                 HStack {
                     SquareAppIcon(icon: "code", size: 20)
+                    
                     Text(repo.language ?? "Unknown")
                         .font(.footnote)
                         .fontWeight(.bold)

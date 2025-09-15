@@ -7,6 +7,7 @@
 
 import Foundation
 
+// GitHub API 検索用の言語フィルタ
 enum Language: String, CaseIterable, Identifiable {
     var id: String { rawValue }
     

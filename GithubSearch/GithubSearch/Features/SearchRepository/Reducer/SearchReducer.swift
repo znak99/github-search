@@ -7,39 +7,53 @@
 
 import Foundation
 
-/// GitHubリポジトリ検索の状態を更新するリデューサー
+// GitHubリポジトリ検索の状態を更新するリデューサー
 enum SearchReducer {
+    
     static func apply(_ state: inout SearchRepositoryState, _ action: SearchRepositoryAction) {
         switch action {
-        case .setQuery(let q): // 検索クエリを設定
+            
+            // ユーザー入力: 検索クエリを更新
+        case .setQuery(let q):
             state.query = q
-        case .setLanguage(let lang): // 言語フィルターを設定（空文字ならnil）
+            
+            // ユーザー入力: 言語フィルターを更新（空ならnilに）
+        case .setLanguage(let lang):
             state.language = (lang?.isEmpty == true) ? nil : lang
-        case .setSort(let s): // ソート条件を設定
+            
+            // ユーザー入力: ソート条件を更新
+        case .setSort(let s):
             state.sort = s
-        case .setOrder(let o): // 並び順を設定
+            
+            // ユーザー入力: 並び順を更新
+        case .setOrder(let o):
             state.order = o
             
-        case ._setLoading: // ローディング状態に変更
+            // API呼び出し開始 → ローディング状態に変更
+        case ._setLoading:
             state.viewState = .loading
             
-        case ._apply(let new, let total, let limit, let append): // 検索結果を反映
+            // API結果を反映
+        case ._apply(let new, let total, let limit, let append):
             state.rateLimit = limit
             if append {
+                // 追加読み込み（ページネーション）
                 state.items += new
             } else {
+                // 最初のページとして置き換え
                 state.items = new
             }
             state.total = total
             state.canLoadMore = state.items.count < total
             state.viewState = state.items.isEmpty ? .empty : .loaded
             
-        case ._error(let msg): // エラー状態に変更
+            // エラーを状態に反映
+        case ._error(let msg):
             state.viewState = .error(msg)
             
-        case .submit, .reachedBottom: // 検索実行やスクロール末尾到達（状態変更なし）
+            // 明示的な状態変化なし（アクションは存在）
+        case .submit, .reachedBottom:
             break
         }
     }
 }
-

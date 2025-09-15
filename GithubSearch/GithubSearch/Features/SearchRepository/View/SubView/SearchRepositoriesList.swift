@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// リポジトリ一覧を表示するビュー
 struct SearchRepositoriesList: View {
     
     let repos: [GitHubRepository]
@@ -19,9 +20,9 @@ struct SearchRepositoriesList: View {
         ScrollView {
             LazyVStack {
                 ForEach(repos, id: \.id) { repo in
-                    // Repository Card
                     RepositoryCard(repo: repo)
                         .onAppear {
+                            // 最後のセルが表示されたら次のページをロードする
                             if repo.id == repos.last?.id, canLoadMore, !isLoadingNext {
                                 loadMore(repo.id)
                             }
@@ -30,8 +31,10 @@ struct SearchRepositoriesList: View {
                             onSelect(repo)
                         }
                 }
+                
                 if isLoadingNext {
-                    ProgressView().padding(.vertical, 16)
+                    ProgressView()
+                        .padding(.vertical, 16)
                 }
             }
         }
@@ -40,7 +43,7 @@ struct SearchRepositoriesList: View {
 
 #Preview {
     SearchRepositoriesList(
-        repos: testRepos,
+        repos: [],
         isLoadingNext: false,
         canLoadMore: false,
         loadMore: {_ in },

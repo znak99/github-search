@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// 入力パラメータを正規化し、SearchRepositoriesServiceを呼び出す役割を持つ
+// 入力パラメータを正規化し、SearchRepositoriesServiceを呼び出す
 public struct SearchRepositoriesInteractor: SearchRepositoriesUsecase, Sendable {
     private let service: SearchRepositoriesServicing
 
