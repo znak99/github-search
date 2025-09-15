@@ -16,6 +16,7 @@ public struct SearchRepositoryState {
     var items: [GitHubRepository] = []
     var page = 1
     let perPage = 30
+    var total = 0
     var canLoadMore = true
     var isLoadingNext = false
     var rateLimit: GitHubRateLimit?

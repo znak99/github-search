@@ -131,7 +131,7 @@ final class SearchRepositoriesManagerSpec: QuickSpec {
 }
 
 // MARK: - Usecase Stub
-final class UsecaseStub: SearchRepositoriesUsecase, @unchecked Sendable {
+final private class UsecaseStub: SearchRepositoriesUsecase, @unchecked Sendable {
     var delayMs: Int = 0
     var result: Result<(SearchRepositoriesResponse, GitHubRateLimit), Error> =
         .success((.init(totalCount: 0, incompleteResults: false, items: []),
