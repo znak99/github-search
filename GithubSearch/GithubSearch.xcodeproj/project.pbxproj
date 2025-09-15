@@ -27,6 +27,7 @@
 		FB73A20E2E77A3EE00867BD8 /* SearchRepositoriesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73A20D2E77A3EE00867BD8 /* SearchRepositoriesServiceTests.swift */; };
 		FB73A2102E77A79600867BD8 /* CaptureRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73A20F2E77A79600867BD8 /* CaptureRef.swift */; };
 		FB73A2132E77C30800867BD8 /* SearchRepositoriesUsecaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73A2122E77C30700867BD8 /* SearchRepositoriesUsecaseTests.swift */; };
+		FB73A2152E77CA1C00867BD8 /* SearchRepositoriesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73A2142E77CA1C00867BD8 /* SearchRepositoriesManagerTests.swift */; };
 		FBB2C9082E74723F004C9165 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = FBB2C9072E74723F004C9165 /* Quick */; };
 		FBB2C90B2E747288004C9165 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = FBB2C90A2E747288004C9165 /* Nimble */; };
 		FBB2C9112E74763B004C9165 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2C90F2E74763B004C9165 /* Fixture.swift */; };
@@ -103,6 +104,7 @@
 		FB73A20F2E77A79600867BD8 /* CaptureRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureRef.swift; sourceTree = "<group>"; };
 		FB73A2112E77AE2200867BD8 /* GithubSearchTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GithubSearchTests.xctestplan; sourceTree = SOURCE_ROOT; };
 		FB73A2122E77C30700867BD8 /* SearchRepositoriesUsecaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesUsecaseTests.swift; sourceTree = "<group>"; };
+		FB73A2142E77CA1C00867BD8 /* SearchRepositoriesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesManagerTests.swift; sourceTree = "<group>"; };
 		FBB2C90F2E74763B004C9165 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		FBB2C9122E747645004C9165 /* SearchRepositoriesDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesDecodingTests.swift; sourceTree = "<group>"; };
 		FBB2C9152E7476CF004C9165 /* SearchRepositoriesResponse_success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchRepositoriesResponse_success.json; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				FBB2C9122E747645004C9165 /* SearchRepositoriesDecodingTests.swift */,
 				FB73A20D2E77A3EE00867BD8 /* SearchRepositoriesServiceTests.swift */,
 				FB73A2122E77C30700867BD8 /* SearchRepositoriesUsecaseTests.swift */,
+				FB73A2142E77CA1C00867BD8 /* SearchRepositoriesManagerTests.swift */,
 				FB73A2112E77AE2200867BD8 /* GithubSearchTests.xctestplan */,
 			);
 			path = GithubSearchTests;
@@ -658,6 +661,7 @@
 				FBB2C9112E74763B004C9165 /* Fixture.swift in Sources */,
 				FB73A2102E77A79600867BD8 /* CaptureRef.swift in Sources */,
 				FB73A2132E77C30800867BD8 /* SearchRepositoriesUsecaseTests.swift in Sources */,
+				FB73A2152E77CA1C00867BD8 /* SearchRepositoriesManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
