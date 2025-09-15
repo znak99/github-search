@@ -1,5 +1,5 @@
 //
-//  SearchRepositoriesSpec.swift
+//  SearchRepositoriesDecodingTests.swift
 //  GithubSearchTests
 //
 //  Created by seungwoo on 2025/09/13.
@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import GithubSearch
 
-final class SearchRepositoriesSpec: QuickSpec {
+final class SearchRepositoriesDecodingTests: QuickSpec {
     override class func spec() {
         describe("GitHub Search decode") {
             var response: SearchRepositoriesResponse!

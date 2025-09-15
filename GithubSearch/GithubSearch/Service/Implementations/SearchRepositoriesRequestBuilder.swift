@@ -43,6 +43,11 @@ struct SearchRepositoriesRequestBuilder {
         // 生成したオブジェクトを用いてリクエストオブジェクト生成
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        
+        for (key, value) in AppConfig.API.defaultHeaders {
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+
         return request
     }
 }
