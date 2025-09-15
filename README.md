@@ -66,6 +66,14 @@ UI は **SwiftUI**、非同期処理は **async/await** を活用し、MVVM ア�
 
 ---
 
+## 📚 使用ライブラリ
+
+- [Quick](https://github.com/Quick/Quick) - テストフレームワーク
+- [Nimble](https://github.com/Quick/Nimble) - テストマッチャー
+- [Shimmer](https://github.com/markiv/SwiftUI-Shimmer) - UI のスケルトン・ローディング表現
+
+---
+
 ## 📱 対応環境
 
 - **iOS**: 16.0+
