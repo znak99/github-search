@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shimmer
 
 struct RepositoryCardHeader: View {
     
@@ -16,7 +17,11 @@ struct RepositoryCardHeader: View {
             AsyncImage(url: repo.owner.avatarURL) { phase in
                 switch phase {
                 case .empty:
-                    ProgressView()
+                    Image("github-avatar").avatarSize(48)
+                        .background {
+                            Circle().fill(.secondary)
+                        }
+                        .shimmering()
                 case .success(let image):
                     image.avatarSize(48).clipShape(Circle())
                 case .failure(_):
