@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "8E088FA4-C758-47B7-8DA6-0C9BDFFFD9C1",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:GithubSearch.xcodeproj",
+        "identifier" : "FB529EA92E744058007970D3",
+        "name" : "GithubSearchTests"
+      }
+    }
+  ],
+  "version" : 1
+}

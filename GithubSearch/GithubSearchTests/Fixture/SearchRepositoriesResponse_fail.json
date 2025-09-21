@@ -1,0 +1,21 @@
+{
+    "total_count": 1,
+    "incomplete_results": false,
+    "items": [
+        {
+            "id": 999,
+            "name": "A",
+            "full_name": "a/A",
+            "html_url": "https://github.com/a/A",
+            "description": null,
+            "stargazers_count": 0,
+            "forks_count": 0,
+            "language": null,
+            "updated_at": "BAD_DATE",
+            "owner": {
+                "login": "a",
+                "avatar_url": "https://x/y.png"
+            }
+        }
+    ]
+}
